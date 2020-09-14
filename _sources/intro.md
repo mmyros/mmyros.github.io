@@ -25,7 +25,9 @@ as I perturb the neurons as described above.
 * [Here](https://mmyros.github.io/data_pfc3/intro.html) is another
 
 # CV
-[Informal], [formal as html](extras/cv_myroshnychenko.html), [formal as pdf](extras/CV_Myroshnychenko,_Maxym.pdf) 
+* [Informal](), 
+* [formal as html](extras/cv_myroshnychenko.html)
+* [formal as pdf](extras/CV_Myroshnychenko,_Maxym.pdf) 
 
 # My open-source projects on github
 Outside my day job, I contribute to open-source projects. I made a few on my own time that are not used in the lab,
