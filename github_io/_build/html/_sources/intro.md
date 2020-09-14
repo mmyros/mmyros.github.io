@@ -6,33 +6,35 @@ There, I implant, infect, and stimulate the brains of mice. This is done in orde
 communicate, and to find novel ways to improve psychiatric conditions.
 
 Let's unpack that.
-# Goals 
-## Inter-region communication
+## Research goals at NIH 
+### Inter-region communication
 This is a hard question. One would need so, so many neurons recorded simultaneously from many regions in order to start 
 to believe the analysis. Local field potentials are easier, but observing them passively is useless to this end.
 Therefore, perturbation is essential. I perturb distal parts of neurons, but not the cell bodies (hopefully).  
-## Applications
+### Applications
 People with psychiatric conditions such as schizophrenia have impaired working memory. I use a working memory task in mice 
 as I perturb the neurons as described above. 
  
  
 
-# Some web pages with notes and open-source data results
+## Some web pages with notes and open-source data results
 * [Here](http://mmyros.github.io/mmyros_iu.github.io/) is my old page from grad school
 * [Here](dev.to/mmyros) are my notes on development in python and jupyter, primarily to answer FAQs from students
 * [Here](http://mmyros.herokuapp.com/) are some interactive pretty visualizations/dashboards of data I made using generative models
 * [Here](https://mmyros.gitlab.io/web-steinmetz/intro.html) are some visualizations of an open-source dataset
 * [Here](https://mmyros.github.io/data_pfc3/intro.html) is another
 
-# CV
+## CV
 * [Informal](), 
-* [formal as html](extras/cv_myroshnychenko.html)
-* [formal as pdf](extras/CV_Myroshnychenko,_Maxym.pdf) 
+* [formal as html](https://mmyros.github.io/extras/cv_myroshnychenko.html)
+* [formal as pdf](https://www.dropbox.com/s/12cgy9fgsjeldvp/CV_Myroshnychenko%2C_Maxym.pdf?dl=0) 
 
-# My open-source projects on github
+## My open-source projects on github
 Outside my day job, I contribute to open-source projects. I made a few on my own time that are not used in the lab,
-but may help someone out there. [Overview](https://github.com/mmyros) 
-## Some highlights
+but may help someone out there.
+ 
+[Overview](https://github.com/mmyros) 
+### Some highlights
 * [Cluster quality](https://github.com/mmyros/cluster_quality): measurements of how well spikes were isolated from noise.
 Parallelized and packaged into a CLI interface.
 * [Phy extras](https://github.com/mmyros/phy_extras) are enhancements to the popular Phy interface for inspecting 
