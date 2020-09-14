@@ -26,8 +26,6 @@
     <script src="_static/copybutton.js"></script>
     <script src="_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -37,7 +35,6 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Content in Jupyter Book" href="content.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -77,14 +74,6 @@
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="content.html">
-   Content in Jupyter Book
-  </a>
- </li>
-</ul>
-
 </nav>
 
  <!-- To handle the deprecated key -->
@@ -165,8 +154,59 @@
 <h1>Maxym Myroshnychenko<a class="headerlink" href="#maxym-myroshnychenko" title="Permalink to this headline">¶</a></h1>
 <p>Welcome to the page dedicated to my shameless self-promotion. I am a postdoc at the National Institutes of Health in Bethesda, MD.
 There, I implant, infect, and stimulate the brains of mice. This is done in order to understand better how brain regions
-communicate, and to</p>
-<div class="toctree-wrapper compound">
+communicate, and to find novel ways to improve psychiatric conditions.</p>
+<p>Let’s unpack that.</p>
+</div>
+<div class="section" id="goals">
+<h1>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="inter-region-communication">
+<h2>Inter-region communication<a class="headerlink" href="#inter-region-communication" title="Permalink to this headline">¶</a></h2>
+<p>This is a hard question. One would need so, so many neurons recorded simultaneously from many regions in order to start
+to believe the analysis. Local field potentials are easier, but observing them passively is useless to this end.
+Therefore, perturbation is essential. I perturb distal parts of neurons, but not the cell bodies (hopefully).</p>
+</div>
+<div class="section" id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h2>
+<p>People with psychiatric conditions such as schizophrenia have impaired working memory. I use a working memory task in mice
+as I perturb the neurons as described above.</p>
+</div>
+</div>
+<div class="section" id="some-web-pages-with-notes-and-open-source-data-results">
+<h1>Some web pages with notes and open-source data results<a class="headerlink" href="#some-web-pages-with-notes-and-open-source-data-results" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="http://mmyros.github.io/mmyros_iu.github.io/">Here</a> is my old page from grad school</p></li>
+<li><p><span class="xref myst">Here</span> are my notes on development in python and jupyter, primarily to answer FAQs from students</p></li>
+<li><p><a class="reference external" href="http://mmyros.herokuapp.com/">Here</a> are some interactive pretty visualizations/dashboards of data I made using generative models</p></li>
+<li><p><a class="reference external" href="https://mmyros.gitlab.io/web-steinmetz/intro.html">Here</a> are some visualizations of an open-source dataset</p></li>
+<li><p><a class="reference external" href="https://mmyros.github.io/data_pfc3/intro.html">Here</a> is another</p></li>
+</ul>
+</div>
+<div class="section" id="cv">
+<h1>CV<a class="headerlink" href="#cv" title="Permalink to this headline">¶</a></h1>
+<p>[Informal], <span class="xref myst">formal as html</span>, <span class="xref myst">formal as pdf</span></p>
+</div>
+<div class="section" id="my-open-source-projects-on-github">
+<h1>My open-source projects on github<a class="headerlink" href="#my-open-source-projects-on-github" title="Permalink to this headline">¶</a></h1>
+<p>Outside my day job, I contribute to open-source projects. I made a few on my own time that are not used in the lab,
+but may help someone out there. <a class="reference external" href="https://github.com/mmyros">Overview</a></p>
+<div class="section" id="some-highlights">
+<h2>Some highlights<a class="headerlink" href="#some-highlights" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/mmyros/cluster_quality">Cluster quality</a>: measurements of how well spikes were isolated from noise.
+Parallelized and packaged into a CLI interface.</p></li>
+<li><p><a class="reference external" href="https://github.com/mmyros/phy_extras">Phy extras</a> are enhancements to the popular Phy interface for inspecting
+clustering. Includes:</p>
+<ul>
+<li><p>Alt+R to cycle through raw data and waveform views: raw, highpass, mean+highpass, median+highpass, highpass+median, highpass+mean</p></li>
+<li><p>s for Scrub outliers using Local Outlier Factor (also implemented are Robust covariance, One-Class SVM, and Isolation Forest. See plugins/custom_split.py)</p></li>
+<li><p>t for Time split using gaussian hierarchical model</p></li>
+<li><p>x for k-means split</p></li>
+<li><p>d for GAC split (Due to Swindale lab, gradient ascent clustering (GAC) algorithm, a variant of the mean-shift algorithm)</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/mmyros/PulsePal">PulsePal port to Python 3</a>: Port to Python 3 of a mainly-Matlab project
+from Sanworks LLC. They had some Python code, but it broke a while ago.</p></li>
+</ul>
 </div>
 </div>
 
@@ -198,7 +238,6 @@ communicate, and to</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='right-next' id="next-link" href="content.html" title="next page">Content in Jupyter Book</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
