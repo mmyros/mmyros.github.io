@@ -1,4 +1,4 @@
 - file: intro
 - file: sci_comp_notes
   sections:
-    - best_tool
+    - file: best_tool
