@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Search &#8212; About me</title>
+    <title>Best tool for the job &#8212; About me</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -17,7 +17,6 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/spanels-index--0afa1ebdab0bb23b98b56d34c23d9f57.css" />
     <link rel="stylesheet" type="text/css" href="_static/spanels-variables--ffc7f74dcb1b9eecba2dbcbc22818714.css" />
-    
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -35,15 +34,12 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="_static/searchtools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" />
-  <script src="searchindex.js" defer></script>
-  
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Scientific computing notes" href="sci_comp_notes.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
-
 
 
 
@@ -65,7 +61,7 @@
 </a>
 </div>
 
-<form class="bd-search d-flex align-items-center" action="#" method="get">
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
@@ -78,11 +74,18 @@
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
   <a class="reference internal" href="sci_comp_notes.html">
    Scientific computing notes
   </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Best tool for the job
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -118,6 +121,18 @@
             class="fas fa-download"></i></button>
 
     
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/best_tool.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
 </div>
         <!-- Source interaction buttons -->
 
@@ -133,6 +148,9 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
         <nav id="bd-toc-nav">
             
         </nav>
@@ -143,27 +161,68 @@
         
               <div>
                 
-  <h1 id="search-documentation">Search</h1>
-  <div id="fallback" class="admonition warning">
-  <script>$('#fallback').hide();</script>
-  <p>
-    Please activate JavaScript to enable the search
-    functionality.
-  </p>
-  </div>
-  <p>
-    Searching for multiple words only shows matches that contain
-    all words.
-  </p>
-  <form action="" method="get">
-    <input type="text" name="q" aria-labelledby="search-documentation" value="" />
-    <input type="submit" value="search" />
-    <span id="search-progress" style="padding-left: 10px"></span>
-  </form>
-  
-  <div id="search-results">
-  
-  </div>
+  <div class="section" id="best-tool-for-the-job">
+<h1>Best tool for the job<a class="headerlink" href="#best-tool-for-the-job" title="Permalink to this headline">¶</a></h1>
+<p>Rather than reinvent a tool, it’s better to use an existing one and contribute to its improvement. But it has to be a good
+one to begin with! Here are my favorites:</p>
+<ul class="simple">
+<li><p>Data management:</p>
+<ul>
+<li><p>large project (&gt;3Gb): <code class="docutils literal notranslate"><span class="pre">datajoint</span></code> (or another DAG + *sql)</p></li>
+<li><p>small project (&lt;3Gb): <code class="docutils literal notranslate"><span class="pre">NetCDF</span></code> through Xarray</p></li>
+</ul>
+</li>
+<li><p>Array manipulation:</p>
+<ul>
+<li><p>First choice: Xarray (<code class="docutils literal notranslate"><span class="pre">df.to_xarray()</span></code>)</p></li>
+<li><p>Second choice: Pandas longform (<code class="docutils literal notranslate"><span class="pre">an_xarray.to_pandas()</span></code>)</p></li>
+</ul>
+</li>
+<li><p>Visualization, must have faceting:</p>
+<ul>
+<li><p>Quick: <code class="docutils literal notranslate"><span class="pre">an_xarray.plot(col='column_dimension')</span></code></p></li>
+<li><p>Powerful+interactive: <code class="docutils literal notranslate"><span class="pre">Holoviews</span></code>+<code class="docutils literal notranslate"><span class="pre">datashader</span></code></p></li>
+<li><p>Quick and powerful: <code class="docutils literal notranslate"><span class="pre">df.hvplot(col='column_dimension')</span></code></p></li>
+<li><p>Beautiful: altair (+altair_save to reduce file size)</p></li>
+</ul>
+</li>
+<li><p>Estimation, Bayes, Monte Carlo, bespoke ML:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">numpyro</span></code> for speed and future potential</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stan</span></code> for examples and debugging</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arviz</span></code> to use either of the above interchangeably. Bonus: Xarray!</p></li>
+</ul>
+</li>
+<li><p>Sharing figures:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Jupyter-book</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Gitlab</span> <span class="pre">pages</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nbconvert</span></code> to html</p></li>
+<li><p>Excited for <code class="docutils literal notranslate"><span class="pre">papermill</span></code></p></li>
+</ul>
+</li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
@@ -173,6 +232,7 @@
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="sci_comp_notes.html" title="previous page">Scientific computing notes</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
