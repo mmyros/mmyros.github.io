@@ -15,8 +15,8 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/spanels-index--0afa1ebdab0bb23b98b56d34c23d9f57.css" />
-    <link rel="stylesheet" type="text/css" href="_static/spanels-variables--ffc7f74dcb1b9eecba2dbcbc22818714.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -27,6 +27,8 @@
     <script src="_static/copybutton.js"></script>
     <script src="_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -36,6 +38,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Multilevel data modeling with Bayes and LMM" href="bayes_examples/bayes_examples.html" />
     <link rel="prev" title="Best tool for the job" href="best_tool.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -91,6 +94,11 @@
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bayes_examples/bayes_examples.html">
+   Multilevel data modeling with Bayes and LMM
+  </a>
  </li>
 </ul>
 
@@ -172,6 +180,28 @@
   <a class="reference internal nav-link" href="#how-to">
    How-to
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-a-new-repository">
+     1. Make a new repository
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#work-on-some-jupyter-code">
+     2. Work on some jupyter code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modify-outline">
+     3. Modify outline
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compile-jupyter-code-to-html">
+     4. Compile jupyter code to html
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#recap">
@@ -190,7 +220,7 @@
                 
   <div class="section" id="organizing-jupyter-notebooks">
 <h1>Organizing jupyter notebooks<a class="headerlink" href="#organizing-jupyter-notebooks" title="Permalink to this headline">¶</a></h1>
-<p><img alt="screenshot of jb" src="dev.png" /></p>
+<p><img alt="screenshot of jb" src="_images/dev.png" /></p>
 <div class="section" id="problem">
 <h2>Problem<a class="headerlink" href="#problem" title="Permalink to this headline">¶</a></h2>
 <p>Jupyter notebooks are great, but I hit a few grave problems once I accumulated a handful.
@@ -222,24 +252,36 @@ For example output, see my <a class="reference external" href="https://mmyros-pr
 </div>
 <div class="section" id="how-to">
 <h2>How-to<a class="headerlink" href="#how-to" title="Permalink to this headline">¶</a></h2>
-<p>= 1 = Make a new repository (let’s call it coolproject) and clone it. Navigate to it in a terminal and then:</p>
+<div class="section" id="make-a-new-repository">
+<h3>1. Make a new repository<a class="headerlink" href="#make-a-new-repository" title="Permalink to this headline">¶</a></h3>
+<p>Let’s call it “coolproject”. Clone it. Navigate to it in a terminal and then:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install jupyter-book</span>
 <span class="go">jupyter-book create coolproject</span>
 </pre></div>
 </div>
-<p>This will make the coolproject folder inside your repo. Navigate to it in your terminal and fire up jupyter:</p>
-<p><code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span> </code></p>
-<p>= 2 = Work on some jupyter code. Say you made awesome_code.ipynb, and it’s related to the topic wowtopic. Also create wowtopic.ipynbthat only has some text in a markdown cell. You’ll use this to introduce the topic. It can be empty for now.
-= 3 = In addition to awesome_code.ipynb you created in step 2, you’ll find the file toc.yml inside this new folder. Edit it to add awesome_code.ipynb. Since it’s related to wowtopic, you’ll want toc.yml to have:</p>
+<p>This will make the coolproject folder inside your repo. Navigate to it in your terminal and fire up jupyter.</p>
+</div>
+<div class="section" id="work-on-some-jupyter-code">
+<h3>2. Work on some jupyter code<a class="headerlink" href="#work-on-some-jupyter-code" title="Permalink to this headline">¶</a></h3>
+<p>Say you made awesome_code.ipynb, and it’s related to the topic “wowtopic”. Also create <code class="docutils literal notranslate"><span class="pre">wowtopic.ipynb</span></code> that only has some text in a markdown cell. You’ll use this to introduce the topic. It can be empty for now.</p>
+</div>
+<div class="section" id="modify-outline">
+<h3>3. Modify outline<a class="headerlink" href="#modify-outline" title="Permalink to this headline">¶</a></h3>
+<p>In addition to awesome_code.ipynb you created in step 2, you’ll find the file toc.yml inside this new folder. Edit it to add awesome_code.ipynb. Since it’s related to wowtopic, you’ll want toc.yml to have:</p>
 <div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>- file: wowtopic
   sections:
     - file: awesome_code
 </pre></div>
 </div>
-<p>= 4 = Compile jupyter code to html: Go to the top folder of your repository and issue the command</p>
-<p><code class="docutils literal notranslate"><span class="pre">jb</span> <span class="pre">build</span> <span class="pre">coolproject</span></code></p>
-<p>That’s it! Now, you have instantly shareable html representation of all your notebooks.
-View results</p>
+</div>
+<div class="section" id="compile-jupyter-code-to-html">
+<h3>4. Compile jupyter code to html<a class="headerlink" href="#compile-jupyter-code-to-html" title="Permalink to this headline">¶</a></h3>
+<p>Go to the top folder of your repository and issue the command</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">jb build coolproject</span>
+</pre></div>
+</div>
+<p>That’s it! Now, you have instantly shareable html representation of all your notebooks.</p>
+</div>
 </div>
 <div class="section" id="recap">
 <h2>Recap<a class="headerlink" href="#recap" title="Permalink to this headline">¶</a></h2>
@@ -278,6 +320,7 @@ View results</p>
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="best_tool.html" title="previous page">Best tool for the job</a>
+    <a class='right-next' id="next-link" href="bayes_examples/bayes_examples.html" title="next page">Multilevel data modeling with Bayes and LMM</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

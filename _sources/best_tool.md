@@ -7,7 +7,11 @@ one to begin with! Here are my favorites:
   
 - Array manipulation:
   - First choice: Xarray (`df.to_xarray()`)
-  - Second choice: Pandas longform (`an_xarray.to_pandas()`) 
+  - Second choice: Pandas longform (`an_xarray.to_pandas()`)
+  
+- Speedup:
+  - `numba` for single-threaded performance
+  - `joblib` and `datajoint` for parallelization  
 
 - Visualization, must have faceting: 
   - Quick: `an_xarray.plot(col='column_dimension')`

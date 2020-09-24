@@ -29,28 +29,33 @@ For example output, see my [small demo](https://mmyros-project-chirp.netlify.app
 
 ## How-to
 
-= 1 = Make a new repository (let's call it coolproject) and clone it. Navigate to it in a terminal and then:
+### 1. Make a new repository 
+Let's call it "coolproject". Clone it. Navigate to it in a terminal and then:
 ```console
 pip install jupyter-book
 jupyter-book create coolproject
 ```
-This will make the coolproject folder inside your repo. Navigate to it in your terminal and fire up jupyter:
+This will make the coolproject folder inside your repo. Navigate to it in your terminal and fire up jupyter.
 
-```jupyter notebook ```
+### 2. Work on some jupyter code
+Say you made awesome_code.ipynb, and it's related to the topic "wowtopic". Also create `wowtopic.ipynb` that only has some text in a markdown cell. You'll use this to introduce the topic. It can be empty for now.
 
-= 2 = Work on some jupyter code. Say you made awesome_code.ipynb, and it's related to the topic wowtopic. Also create wowtopic.ipynbthat only has some text in a markdown cell. You'll use this to introduce the topic. It can be empty for now.
-= 3 = In addition to awesome_code.ipynb you created in step 2, you'll find the file toc.yml inside this new folder. Edit it to add awesome_code.ipynb. Since it's related to wowtopic, you'll want toc.yml to have:
+### 3. Modify outline
+In addition to awesome_code.ipynb you created in step 2, you'll find the file toc.yml inside this new folder. Edit it to add awesome_code.ipynb. Since it's related to wowtopic, you'll want toc.yml to have:
 ```yml
 - file: wowtopic
   sections:
     - file: awesome_code
 ```
-= 4 = Compile jupyter code to html: Go to the top folder of your repository and issue the command
+### 4. Compile jupyter code to html
+Go to the top folder of your repository and issue the command
 
-```jb build coolproject``` 
+```console 
+jb build coolproject
+``` 
 
 That's it! Now, you have instantly shareable html representation of all your notebooks.
-View results
+
 ## Recap
 To recap, the top-level folder that contains your repo is called coolproject. It has a subfolder coolproject. In it, you have a bunch of jupyter files and toc.yml that organizes them into topics.
 
