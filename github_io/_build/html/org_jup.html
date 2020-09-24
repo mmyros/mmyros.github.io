@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Organizing jupyter notebooks &#8212; About me</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Multilevel data modeling with Bayes and LMM" href="bayes_examples/bayes_examples.html" />
+    <link rel="prev" title="Best tool for the job" href="best_tool.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">About me</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   About me
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="sci_comp_notes.html">
+   Scientific computing notes
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="best_tool.html">
+     Best tool for the job
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Organizing jupyter notebooks
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bayes_examples/bayes_examples.html">
+   Multilevel data modeling with Bayes and LMM
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/org_jup.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem">
+   Problem
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solution-jupyter-book">
+   Solution: jupyter-book
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to">
+   How-to
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#make-a-new-repository">
+     1. Make a new repository
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#work-on-some-jupyter-code">
+     2. Work on some jupyter code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modify-outline">
+     3. Modify outline
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compile-jupyter-code-to-html">
+     4. Compile jupyter code to html
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recap">
+   Recap
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="organizing-jupyter-notebooks">
+<h1>Organizing jupyter notebooks<a class="headerlink" href="#organizing-jupyter-notebooks" title="Permalink to this headline">¶</a></h1>
+<p><img alt="screenshot of jb" src="_images/dev.png" /></p>
+<div class="section" id="problem">
+<h2>Problem<a class="headerlink" href="#problem" title="Permalink to this headline">¶</a></h2>
+<p>Jupyter notebooks are great, but I hit a few grave problems once I accumulated a handful.
+Some problems you may encounter:</p>
+<ul class="simple">
+<li><p>Remembering what was in each one is a chore</p></li>
+<li><p>It’s tempting to pile on more and more code into the same notebook. They grow in complexity and size</p></li>
+<li><p>They break overtime. If they rely on my outside functions, changes in these functions will break the notebooks.</p></li>
+<li><p>Since they are not typically included in an IDE, spotting errors such as those in problem 3 is nearly impossible unless you re-run them regularly</p></li>
+<li><p>Notebook anxiety. As consequence of problems 3 and 4, you are not likely to rerun them, because something surely broke down while you weren’t looking!</p></li>
+<li><p>Some plotting packages’ output (holoviews, Altair) are not always saved as a part of the notebook</p></li>
+<li><p>Sharing results with collaborators takes an extra step of extracting plots and putting them together in something like pdf or html</p></li>
+</ul>
+<p>Ideal solution would:</p>
+<ul class="simple">
+<li><p>Automatically save the output of a notebook in a common, shareable format</p></li>
+<li><p>Include figures, and not just matplotlib based ones</p></li>
+<li><p>Keep a running list of what’s in each notebook</p></li>
+<li><p>Re-run changed notebooks from scratch to make sure all cells are still runable</p></li>
+<li><p>Make it easy and stress-free to re-run even ones that didn’t change</p></li>
+<li><p>One command to rerun all relevant notebooks in a project.</p></li>
+</ul>
+</div>
+<div class="section" id="solution-jupyter-book">
+<h2>Solution: jupyter-book<a class="headerlink" href="#solution-jupyter-book" title="Permalink to this headline">¶</a></h2>
+<p>Jupyter book addresses all of these problems and then some.
+For example output, see my <a class="reference external" href="https://mmyros-project-chirp.netlify.app/">small demo</a>. It’s very easy to set up - really it’s just two commands:
+<code class="docutils literal notranslate"><span class="pre">jupyter-book</span> <span class="pre">create</span> <span class="pre">coolproject</span></code> and <code class="docutils literal notranslate"><span class="pre">jupyter-book</span> <span class="pre">build</span> <span class="pre">coolproject</span></code>, but let’s go through them in more detail.</p>
+</div>
+<div class="section" id="how-to">
+<h2>How-to<a class="headerlink" href="#how-to" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="make-a-new-repository">
+<h3>1. Make a new repository<a class="headerlink" href="#make-a-new-repository" title="Permalink to this headline">¶</a></h3>
+<p>Let’s call it “coolproject”. Clone it. Navigate to it in a terminal and then:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install jupyter-book</span>
+<span class="go">jupyter-book create coolproject</span>
+</pre></div>
+</div>
+<p>This will make the coolproject folder inside your repo. Navigate to it in your terminal and fire up jupyter.</p>
+</div>
+<div class="section" id="work-on-some-jupyter-code">
+<h3>2. Work on some jupyter code<a class="headerlink" href="#work-on-some-jupyter-code" title="Permalink to this headline">¶</a></h3>
+<p>Say you made awesome_code.ipynb, and it’s related to the topic “wowtopic”. Also create <code class="docutils literal notranslate"><span class="pre">wowtopic.ipynb</span></code> that only has some text in a markdown cell. You’ll use this to introduce the topic. It can be empty for now.</p>
+</div>
+<div class="section" id="modify-outline">
+<h3>3. Modify outline<a class="headerlink" href="#modify-outline" title="Permalink to this headline">¶</a></h3>
+<p>In addition to awesome_code.ipynb you created in step 2, you’ll find the file toc.yml inside this new folder. Edit it to add awesome_code.ipynb. Since it’s related to wowtopic, you’ll want toc.yml to have:</p>
+<div class="highlight-yml notranslate"><div class="highlight"><pre><span></span>- file: wowtopic
+  sections:
+    - file: awesome_code
+</pre></div>
+</div>
+</div>
+<div class="section" id="compile-jupyter-code-to-html">
+<h3>4. Compile jupyter code to html<a class="headerlink" href="#compile-jupyter-code-to-html" title="Permalink to this headline">¶</a></h3>
+<p>Go to the top folder of your repository and issue the command</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">jb build coolproject</span>
+</pre></div>
+</div>
+<p>That’s it! Now, you have instantly shareable html representation of all your notebooks.</p>
+</div>
+</div>
+<div class="section" id="recap">
+<h2>Recap<a class="headerlink" href="#recap" title="Permalink to this headline">¶</a></h2>
+<p>To recap, the top-level folder that contains your repo is called coolproject. It has a subfolder coolproject. In it, you have a bunch of jupyter files and toc.yml that organizes them into topics.</p>
+<p>The last command above makes all of them into a shareable, interlinked group of html files. Open the file coolproject/coolproject/_build/html/index.html with Chrome or Firefox and never get lost in jupyter files again!</p>
+<p>There is an html file in that folder for every jupyter file you put in toc.yml. Share any of them with your collaborators. No need to save figures separately. You can even hide code so it doesn’t get in the way. Perfection!</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="best_tool.html" title="previous page">Best tool for the job</a>
+    <a class='right-next' id="next-link" href="bayes_examples/bayes_examples.html" title="next page">Multilevel data modeling with Bayes and LMM</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Maxym Myroshnychenko<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>
