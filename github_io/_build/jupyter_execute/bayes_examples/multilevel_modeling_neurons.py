@@ -2,6 +2,9 @@
 # coding: utf-8
 
 # # Bayesian Methods for Multilevel Modeling of Neurons
+# This is a slight reworking of the radon example from pymc3 https://docs.pymc.io/notebooks/multilevel_modeling.html
+# 
+# Why this notebook? It's a common departure point to consider multilevel models in neuroscience.
 
 # Hierarchical or multilevel modeling is a generalization of regression modeling. *Multilevel models* are regression models in which the constituent model parameters are given **probability models**. This implies that model parameters are allowed to **vary by group**. Observational units are often naturally **clustered**. Clustering induces dependence between observations, despite random sampling of clusters and random sampling within clusters.
 # 
@@ -18,19 +21,23 @@
 # 
 # The hierarchy in this example is neurons within mouse. 
 # 
-# Following the authors, we are not considering the variability that comes from house identity, which would mean neuron identity in our neuroscience language.
+# Note that we are not considering the variability that comes from house identity, which would mean neuron identity in our neuroscience language.
+# This means that each neuron/house has one measurement. The estimation of firing rate of a neuron is thus a separate topic.
 
 # ## Data organization
 
-# In[2]:
+# First, we import the data from a local file, and extract data.
 
+# In[1]:
+
+
+# HIDE CODE
 
 import arviz as az
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import pymc3 as pm
-import seaborn as sns
 import warnings
 from theano import tensor as tt
 
@@ -39,8 +46,10 @@ RANDOM_SEED = 8924
 np.random.seed(286)
 
 
-# In[3]:
+# In[2]:
 
+
+# HIDE CODE
 
 az.style.use("arviz-darkgrid")
 # Import firingrate data
@@ -52,8 +61,10 @@ srrs_mn = srrs2[srrs2.state=='MN'].copy()
 
 # Next, obtain the mouse-level predictor, firing rate, by combining two variables.
 
-# In[4]:
+# In[3]:
 
+
+# HIDE CODE
 
 srrs_mn['fips'] = srrs_mn.stfips*1000 + srrs_mn.cntyfips
 cty = pd.read_csv(pm.get_data('cty.dat'))
@@ -61,8 +72,10 @@ cty_mn = cty[cty.st=='MN'].copy()
 cty_mn[ 'fips'] = 1000*cty_mn.stfips + cty_mn.ctfips
 
 
-# In[5]:
+# In[4]:
 
+
+# HIDE CODE
 
 print(srrs_mn.columns,srrs_mn.shape)
 print(cty_mn.columns,cty_mn.shape)
@@ -70,8 +83,10 @@ print(cty_mn.columns,cty_mn.shape)
 
 # Use the `merge` method to combine neuron- and mouse-level information in a single DataFrame.
 
-# In[6]:
+# In[5]:
 
+
+# HIDE CODE
 
 srrs_mn = srrs_mn.merge(cty_mn[['fips', 'Uppm']], on='fips')
 srrs_mn = srrs_mn.drop_duplicates(subset='idnum')
@@ -80,15 +95,19 @@ u = np.log(srrs_mn.Uppm).unique()
 n = len(srrs_mn)
 
 
-# In[7]:
+# In[6]:
 
+
+# HIDE CODE
 
 srrs_mn['Uppm'].unique().shape,srrs_mn['activity'].unique().shape
 #plt.scatter(srrs_mn['Uppm'],srrs_mn['activity'])
 
 
-# In[8]:
+# In[7]:
 
+
+# HIDE CODE
 
 # Rename environmental variables to represent 
 # what we think of as a neuroscience example
@@ -96,16 +115,20 @@ srrs_mn.rename({'floor':'no_stim','basement':'stim','county':'mouse',
                 'activity':'firingrate'},axis=1,inplace=True)
 
 
-# In[9]:
+# In[8]:
 
+
+# HIDE CODE
 
 srrs_mn.head()
 
 
 # We also need a lookup table (`dict`) for each unique mouse, for indexing.
 
-# In[10]:
+# In[9]:
 
+
+# HIDE CODE
 
 srrs_mn.mouse = srrs_mn.mouse.map(str.strip)
 mn_mice = srrs_mn.mouse.unique()
@@ -115,8 +138,10 @@ mouse_lookup = dict(zip(mn_mice, range(n_mice)))
 
 # Finally, create local copies of variables.
 
-# In[11]:
+# In[10]:
 
+
+# HIDE CODE
 
 mouse = srrs_mn['mouse_code'] = srrs_mn.mouse.replace(mouse_lookup).values
 firingrate = srrs_mn.firingrate
@@ -126,8 +151,10 @@ no_stim = srrs_mn.no_stim.values
 
 # Distribution of firing rate levels (log scale):
 
-# In[12]:
+# In[11]:
 
+
+# HIDE CODE
 
 srrs_mn.log_firingrate.hist(bins=25);
 
@@ -156,8 +183,10 @@ srrs_mn.log_firingrate.hist(bins=25);
 # 
 # Now for the model:
 
-# In[58]:
+# In[12]:
 
+
+# HIDE CODE
 
 with pm.Model() as pooled_model:
     a = pm.Normal('a', 0., sigma=10., shape=2)
@@ -172,8 +201,10 @@ pm.model_to_graphviz(pooled_model)
 
 # Before running the model let's do some prior predictive checks. Indeed, having sensible priors is not only a way to incorporate scientific knowledge into the model, it can also help and make the MCMC machinery faster -- here we are dealing with a simple linear regression, so no link function comes and distorts the outcome space; but one day this will happen to you and you'll need to think hard about your priors to help your MCMC sampler. So, better to train ourselves when it's quite easy than having to learn when it's very hard... There is a really neat function to do that in PyMC3:
 
-# In[14]:
+# In[13]:
 
+
+# HIDE CODE
 
 with pooled_model:
     prior_checks = pm.sample_prior_predictive(random_seed=RANDOM_SEED)
@@ -194,30 +225,31 @@ plt.ylabel("Mean log firingrate level");
 # 
 # Speaking of sampling, let's fire up the Bayesian machinery!
 
-# In[15]:
+# In[14]:
 
+
+# HIDE CODE
 
 with pooled_model:
     pooled_trace = pm.fit()
 
 
-# In[16]:
+# In[15]:
 
 
-dir(pooled_trace)
 
-
-# In[17]:
-
+# HIDE CODE
 
 with pooled_model:
-    start = pm.find_MAP()
-    pooled_trace = pm.sample(1000, pm.NUTS(scaling=start), start=start, random_seed=RANDOM_SEED)
+   start = pm.find_MAP()
+   pooled_trace = pm.sample(1000, pm.NUTS(scaling=start), start=start, random_seed=RANDOM_SEED)
 az.summary(pooled_trace, round_to=2)
 
 
-# In[18]:
+# In[16]:
 
+
+# HIDE CODE
 
 with pooled_model:
     pooled_trace = pm.sample(1000, tune=2000, random_seed=RANDOM_SEED)
@@ -228,8 +260,10 @@ az.summary(pooled_trace, round_to=2)
 # 
 # Let's see what it means on the outcome space: did the model pick-up the negative relationship between no_stim measurements and log firingrate levels? What's the uncertainty around its estimates? To estimate the uncertainty around the neuron firingrate levels (not the average level, but measurements that would be likely in neurons), we need to sample the likelihood `y` from the model. In another words, we need to do posterior predictive checks:
 
-# In[19]:
+# In[17]:
 
+
+# HIDE CODE
 
 with pooled_model:
     ppc = pm.sample_posterior_predictive(pooled_trace, random_seed=RANDOM_SEED)["y"]
@@ -240,8 +274,10 @@ firingrate_stim, firingrate_no_stim = ppc[:, 1], ppc[:, 0] # we know that no_sti
 
 # We can then use these samples in our plot:
 
-# In[20]:
+# In[18]:
 
+
+# HIDE CODE
 
 plt.scatter(no_stim, log_firingrate, label="Observations", alpha=0.4)
 
@@ -267,14 +303,18 @@ plt.legend(ncol=2, fontsize=9, frameon=True);
 # 
 # Let's compare it to the unpooled model, where we estimate the firingrate level for each mouse:
 
-# In[21]:
+# In[19]:
 
+
+# HIDE CODE
 
 n_mice,no_stim.shape,log_firingrate.shape
 
 
-# In[57]:
+# In[20]:
 
+
+# HIDE CODE
 
 # updated version:
 with pm.Model() as unpooled_model:
@@ -288,8 +328,10 @@ with pm.Model() as unpooled_model:
 pm.model_to_graphviz(unpooled_model)
 
 
-# In[23]:
+# In[21]:
 
+
+# HIDE CODE
 
 with unpooled_model:
     unpooled_trace = pm.sample(1000, tune=2000, random_seed=RANDOM_SEED)
@@ -297,8 +339,10 @@ with unpooled_model:
 
 # Sampling went fine again. Let's look at the expected values for both stim (dimension 0) and no_stim (dimension 1) in each mouse:
 
-# In[24]:
+# In[22]:
 
+
+# HIDE CODE
 
 az.plot_forest(unpooled_trace, var_names=['a'], figsize=(6, 32), r_hat=True, combined=True);
 
@@ -307,8 +351,10 @@ az.plot_forest(unpooled_trace, var_names=['a'], figsize=(6, 32), r_hat=True, com
 # 
 # To identify mice with high firing rate levels, we can plot the ordered mean estimates, as well as their 94% HPD:
 
-# In[25]:
+# In[23]:
 
+
+# HIDE CODE
 
 a_stim_unpooled, a_no_stim_unpooled = unpooled_trace["a"][:, :, 0], unpooled_trace["a"][:, :, 1]
 unpooled_stim = pd.DataFrame.from_dict(
@@ -331,8 +377,10 @@ unpooled_no_stim = pd.DataFrame.from_dict(
                 ).T.sort_values(by="no_stim")
 
 
-# In[26]:
+# In[24]:
 
+
+# HIDE CODE
 
 fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 for ax, estimates, level in zip(axes, [unpooled_stim, unpooled_no_stim], ["stim", "no_stim"]):    
@@ -345,8 +393,10 @@ plt.tight_layout();
 
 # There seems to be more dispersion in firingrate levels for no_stim measurements than for stim ones. Moreover, as we saw in the forest plot, no_stim estimates are globally more uncertain, especially in some mice. We speculated that this is due to smaller sample sizes in the data, but let's verify it!
 
-# In[27]:
+# In[25]:
 
+
+# HIDE CODE
 
 n_no_stim_meas = srrs_mn.groupby("mouse").sum().no_stim
 uncertainty = (unpooled_no_stim.high - unpooled_no_stim.low).sort_index() # sort index to match counties alphabetically
@@ -360,8 +410,10 @@ plt.ylabel("Estimates' uncertainty");
 # 
 # Another way to see this phenomenon is to visually compare the pooled and unpooled estimates for a subset of mice representing a range of sample sizes:
 
-# In[28]:
+# In[26]:
 
+
+# HIDE CODE
 
 # These mice were named as counties in Minnesota, how curious
 SAMPLE_mice = ('LAC QUI PARLE', 'AITKIN', 'KOOCHICHING', 
@@ -423,8 +475,10 @@ plt.tight_layout();
 # 
 # Estimates for mice with larger sample sizes will be closer to the unpooled mouse estimates and will influence the the state-wide average.
 
-# In[56]:
+# In[27]:
 
+
+# HIDE CODE
 
 with pm.Model() as partial_pooling:
     # Hyperpriors:
@@ -443,8 +497,10 @@ with pm.Model() as partial_pooling:
 pm.model_to_graphviz(partial_pooling)
 
 
-# In[30]:
+# In[28]:
 
+
+# HIDE CODE
 
 with partial_pooling:
     partial_pooling_trace = pm.sample(1000, tune=2000, random_seed=RANDOM_SEED)
@@ -452,8 +508,10 @@ with partial_pooling:
 
 # To compare partial-pooling and no-pooling estimates, let's run the unpooled model without the `no_stim` predictor:
 
-# In[53]:
+# In[29]:
 
+
+# HIDE CODE
 
 with pm.Model() as unpooled_bis:
     a_mouse = pm.Normal('a_mouse', 0., sigma=10., shape=n_mice)
@@ -469,8 +527,10 @@ pm.model_to_graphviz(unpooled_bis)
 
 # Now let's compare both models' estimates for all 85 mice. We'll plot the estimates against each mouse's sample size, to let you see more clearly what hierarchical models bring to the table:
 
-# In[32]:
+# In[30]:
 
+
+# HIDE CODE
 
 N_mouse = srrs_mn.groupby("mouse")["idnum"].count().values
 
@@ -525,8 +585,10 @@ plt.tight_layout();
 # 
 # As with the the no-pooling model, we set a separate intercept for each mouse, but rather than fitting separate regression models for each mouse, multilevel modeling **shares strength** among mice, allowing for more reasonable inference in mice with little data. Here is what that looks in code:
 
-# In[55]:
+# In[31]:
 
+
+# HIDE CODE
 
 with pm.Model() as varying_intercept:
     # Hyperpriors:
@@ -549,35 +611,45 @@ pm.model_to_graphviz(varying_intercept)
 
 # Let's fit this bad boy with MCMC:
 
-# In[34]:
+# In[32]:
 
+
+# HIDE CODE
 
 with varying_intercept:
     varying_intercept_trace = pm.sample(1000, tune=2000, random_seed=RANDOM_SEED)
 
 
-# In[35]:
+# In[33]:
 
+
+# HIDE CODE
 
 az.plot_forest(varying_intercept_trace, var_names=["a", "a_mouse"], r_hat=True, combined=True);
 
 
-# In[36]:
+# In[34]:
 
+
+# HIDE CODE
 
 az.plot_trace(varying_intercept_trace, var_names=["sigma_a", "b"]);
 
 
-# In[37]:
+# In[35]:
 
+
+# HIDE CODE
 
 az.summary(varying_intercept_trace, var_names=["a", "sigma_a", "b", "sigma"], round_to=2)
 
 
 # As we suspected, the estimate for the `no_stim` coefficient is reliably negative and centered around -0.66. This can be interpreted as neurons without stims having about half ($\exp(-0.66) = 0.52$) the firingrate levels of those with stims, after accounting for mouse. Note that this is only the *relative* effect of no_stim on firingrate levels: conditional on being in a given mouse, firingrate is expected to be half lower in neurons without stims than in neurons with. To see how much difference a stim makes on the *absolute* level of firingrate, we'd have to push the parameters through the model, as we do with posterior predictive checks and as we'll do just now.
 
-# In[38]:
+# In[36]:
 
+
+# HIDE CODE
 
 xvals = np.arange(2)
 avg_a_mouse = varying_intercept_trace["a_mouse"].mean(0)
@@ -596,8 +668,10 @@ plt.title("MEAN LOG firingrate BY mouse");
 # 
 # That being said, it is easy to show that the partial pooling model provides more objectively reasonable estimates than either the pooled or unpooled models, at least for mice with small sample sizes:
 
-# In[39]:
+# In[37]:
 
+
+# HIDE CODE
 
 fig, axes = plt.subplots(2, 4, figsize=(15, 7), sharey=True, sharex=True)
 axes = axes.ravel()
@@ -644,8 +718,10 @@ plt.tight_layout();
 # 
 # $$y_i = \alpha_{j[i]} + \beta_{j[i]} x_{i} + \epsilon_i$$
 
-# In[49]:
+# In[38]:
 
+
+# HIDE CODE
 
 with pm.Model() as varying_intercept_slope:
     # Hyperpriors:
@@ -672,8 +748,10 @@ pm.model_to_graphviz(varying_intercept_slope)
 
 # Now, if you run this model, you'll get divergences (some or a lot, depending on your random seed). We don't want that -- divergences are your Voldemort to your models. In these situations it's usually wise to reparametrize your model using the "non-centered parametrization" (I know, it's really not a great term, but please indulge me). We're not gonna explain it here, but there are [great resources out there](https://twiecki.io/blog/2017/02/08/bayesian-hierchical-non-centered/). In a nutshell, it's an algebraic trick that helps computation but leaves the model unchanged -- the model is statistically equivalent to the "centered" version. In that case, here is what it would look like:
 
-# In[43]:
+# In[39]:
 
+
+# HIDE CODE
 
 with pm.Model() as varying_intercept_slope:
     # Hyperpriors:
@@ -696,8 +774,10 @@ with pm.Model() as varying_intercept_slope:
 pm.model_to_graphviz(varying_intercept_slope)
 
 
-# In[48]:
+# In[40]:
 
+
+# HIDE CODE
 
 with pm.Model() as varying_intercept_slope:
     # Hyperpriors:
@@ -722,8 +802,10 @@ with pm.Model() as varying_intercept_slope:
 pm.model_to_graphviz(varying_intercept_slope)
 
 
-# In[56]:
+# In[41]:
 
+
+# HIDE CODE
 
 with varying_intercept_slope:    
     varying_intercept_slope_trace = pm.sample(1000, tune=6000, target_accept=0.99, random_seed=RANDOM_SEED)
@@ -735,8 +817,10 @@ with varying_intercept_slope:
 # 
 # Notice however that we had to increase the number of tuning steps. Looking at the trace helps us understand why:
 
-# In[99]:
+# In[42]:
 
+
+# HIDE CODE
 
 az.plot_trace(varying_intercept_slope_trace, compact=True);
 
@@ -747,8 +831,10 @@ az.plot_trace(varying_intercept_slope_trace, compact=True);
 # 
 # To wrap up this model, let's plot the relationship between firingrate and no_stim for each mouse:
 
-# In[100]:
+# In[43]:
 
+
+# HIDE CODE
 
 xvals = np.arange(2)
 avg_a_mouse = (
@@ -769,8 +855,10 @@ plt.ylabel("Mean log firingrate")
 plt.title("MEAN LOG firingrate BY mouse");
 
 
-# In[61]:
+# In[44]:
 
+
+# HIDE CODE
 
 _=az.plot_posterior(varying_intercept_slope_trace)
 
@@ -795,8 +883,10 @@ _=az.plot_posterior(varying_intercept_slope_trace)
 # 
 # This translates quite easily in PyMC3:
 
-# In[47]:
+# In[45]:
 
+
+# HIDE CODE
 
 with pm.Model() as covariation_intercept_slope:
     # prior stddev in intercepts & slopes (variation across mice):
@@ -828,8 +918,10 @@ pm.model_to_graphviz(covariation_intercept_slope)
 
 # This is by far the most complex model we've done so far, so it's normal if you're confused. Just take some time to let it sink in. The centered version mirrors the mathematical notions very closely, so you should be able to get the gist of it. Of course, you guessed it, we're gonna need the non-centered version. There is actually just one change:
 
-# In[102]:
+# In[46]:
 
+
+# HIDE CODE
 
 with pm.Model() as covariation_intercept_slope:
     # prior stddev in intercepts & slopes (variation across mice):
@@ -862,8 +954,10 @@ with pm.Model() as covariation_intercept_slope:
 az.plot_trace(covariation_intercept_slope_trace, lines=[("Rho", {}, 0.)], compact=True);
 
 
-# In[103]:
+# In[47]:
 
+
+# HIDE CODE
 
 pm.model_to_graphviz(covariation_intercept_slope)
 
@@ -872,8 +966,10 @@ pm.model_to_graphviz(covariation_intercept_slope)
 # 
 # And how much variation is there across mice? It's not easy to read `sigma_ab` above, so let's do a forest plot and compare the estimates with the model that doesn't include the covariation between slopes and intercepts:
 
-# In[104]:
+# In[48]:
 
+
+# HIDE CODE
 
 az.plot_forest(
     [varying_intercept_slope_trace, covariation_intercept_slope_trace], 
@@ -886,8 +982,10 @@ az.plot_forest(
 
 # The estimates are very close to each other, both for the means and the standard deviations. But remember, the information given by `Rho` is only seen at the mouse level: in theory it uses even more information from the data to get an even more informed pooling of information for all mouse parameters. So let's visually compare estimates of both models at the mouse level:
 
-# In[105]:
+# In[49]:
 
+
+# HIDE CODE
 
 # posterior means of covariation model:
 a_mouse_cov = (
@@ -934,8 +1032,10 @@ plt.legend();
 # 
 # This is fairly straightforward to implement in PyMC3 -- we just add another level:
 
-# In[45]:
+# In[50]:
 
+
+# HIDE CODE
 
 with pm.Model() as hierarchical_intercept:
     # Hyperpriors:
@@ -957,8 +1057,10 @@ with pm.Model() as hierarchical_intercept:
 pm.model_to_graphviz(hierarchical_intercept)
 
 
-# In[50]:
+# In[51]:
 
+
+# HIDE CODE
 
 # compare to no velocity:
 with pm.Model() as varying_intercept_slope:
@@ -984,8 +1086,10 @@ pm.model_to_graphviz(varying_intercept_slope)
 
 # Do you see the new level, with `sigma_a` and `g`, which is two-dimensional because it contains the linear model for `a_mouse`? Now, if we run this model we're gonna get... divergences, you guessed it! So we're gonna switch to the non-centered form again:
 
-# In[46]:
+# In[52]:
 
+
+# HIDE CODE
 
 with pm.Model() as hierarchical_intercept:
     # Hyperpriors:
@@ -1009,15 +1113,19 @@ with pm.Model() as hierarchical_intercept:
 pm.model_to_graphviz(hierarchical_intercept)
 
 
-# In[120]:
+# In[53]:
 
+
+# HIDE CODE
 
 with hierarchical_intercept:    
     hierarchical_intercept_trace = pm.sample(1000, tune=6000, target_accept=0.99, random_seed=RANDOM_SEED)
 
 
-# In[121]:
+# In[54]:
 
+
+# HIDE CODE
 
 samples = hierarchical_intercept_trace
 avg_a = samples['a'].mean(0)
@@ -1052,8 +1160,10 @@ plt.legend(fontsize=9);
 # 
 # If we compare the mouse-intercepts for this model with those of the partial-pooling model without a mouse-level covariate:
 
-# In[26]:
+# In[55]:
 
+
+# HIDE CODE
 
 az.plot_forest(
     [varying_intercept_trace, hierarchical_intercept_trace], 
@@ -1076,8 +1186,10 @@ az.plot_forest(
 # 
 # To add these effects to our model, let's create a new variable containing the mean of `no_stim` in each mouse and add that to our previous model:
 
-# In[ ]:
+# In[56]:
 
+
+# HIDE CODE
 
 avg_no_stim = srrs_mn.groupby('mouse')['no_stim'].mean().rename(mouse_lookup).values
 
@@ -1107,8 +1219,10 @@ with pm.Model() as contextual_effect:
 az.summary(contextual_effect_trace, var_names=["g"], round_to=2)
 
 
-# In[ ]:
+# In[57]:
 
+
+# HIDE CODE
 
 pm.model_to_graphviz(contextual_effect)
 
@@ -1134,8 +1248,10 @@ pm.model_to_graphviz(contextual_effect)
 # 
 # The first type is the easiest one, as we've generally already sampled from the existing group. For this model, the first type of posterior prediction is the only one making sense, as mice are not added or deleted every day. So, if we wanted to make a prediction for, say, a new neuron with no stim in St. Louis mouse, we just need to sample from the firingrate model with the appropriate intercept:
 
-# In[ ]:
+# In[58]:
 
+
+# HIDE CODE
 
 mouse_lookup["ST LOUIS"]
 
@@ -1146,8 +1262,10 @@ mouse_lookup["ST LOUIS"]
 # 
 # Because we judiciously set the mouse index and no_stim values as shared variables earlier, we can modify them directly to the desired values (69 and 1 respectively) and sample corresponding posterior predictions, without having to redefine and recompile our model. Using the model just above:
 
-# In[ ]:
+# In[59]:
 
+
+# HIDE CODE
 
 with contextual_effect:
     pm.set_data({
@@ -1175,6 +1293,18 @@ az.plot_posterior(stl_pred);
 # - Gelman, A. (2006), *Multilevel (Hierarchical) modeling: what it can and cannot do*, Technometrics, 48(3), 432–435.
 # 
 # - McElreath, R. (2020), *Statistical Rethinking - A Bayesian Course with Examples in R and Stan (2nd ed.)*, CRC Press. 
+
+# In[60]:
+
+
+# HIDE CODE
+
+
+# In[ ]:
+
+
+
+
 
 # In[ ]:
 

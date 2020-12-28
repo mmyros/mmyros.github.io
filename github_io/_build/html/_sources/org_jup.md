@@ -62,3 +62,12 @@ To recap, the top-level folder that contains your repo is called coolproject. It
 The last command above makes all of them into a shareable, interlinked group of html files. Open the file coolproject/coolproject/_build/html/index.html with Chrome or Firefox and never get lost in jupyter files again!
 
 There is an html file in that folder for every jupyter file you put in toc.yml. Share any of them with your collaborators. No need to save figures separately. You can even hide code so it doesn't get in the way. Perfection!
+
+## Extra notes
+add to _config.yml:
+execute:
+  execute_notebooks         : cache  # Whether to execute notebooks at build ti\
+me. Must be one of ("auto", "force", "cache", "off")
+  cache                     : ""  # A path to the jupyter cache that will be us\
+ed to store execution artifacs. Defaults to `_build/.jupyter_cache/`
+  timeout: 100

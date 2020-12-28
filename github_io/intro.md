@@ -21,7 +21,7 @@ as I perturb the neurons as described above.
 * [Here](http://mmyros.github.io/mmyros_iu.github.io/) is my old page from grad school
 * [Here](dev.to/mmyros) are my notes on development in python and jupyter, primarily to answer FAQs from students
 * [Here](http://mmyros.herokuapp.com/) are some interactive pretty visualizations/dashboards of data I made using generative models
-* [Here](https://mmyros.gitlab.io/web-steinmetz/intro.html) are some visualizations of an open-source dataset
+* [Here](https://mmyros.gitlab.io/ermines-steinmetz/) are some visualizations of an open-source dataset
 * [Here](https://mmyros.github.io/data_pfc3/intro.html) is another
 
 ## CV
