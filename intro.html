@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About me &#8212; About me</title>
     
-  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -44,10 +41,8 @@
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
@@ -57,14 +52,17 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Scientific computing notes" href="sci_comp_notes.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
 
-
-
+    <!-- Google Analytics -->
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -73,30 +71,36 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  
-  <h1 class="site-logo" id="site-title">About me</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">About me</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
- <li class="toctree-l1 current active">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 current">
   <a class="reference internal" href="#">
    About me
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="sci_comp_notes.html">
    Scientific computing notes
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="best_tool.html">
      Best tool for the job
@@ -108,25 +112,27 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="bayes_examples/bayes_examples.html">
    Multilevel data modeling with Bayes and LMM
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="bayes_examples/multilevel_modeling_neurons.html">
      Bayesian Methods for Multilevel Modeling of Neurons
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 </div>
@@ -138,21 +144,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -170,27 +176,27 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#research-goals-at-nih">
    Research goals at NIH
@@ -204,6 +210,11 @@
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#applications">
      Applications
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#my-principles">
+     My principles
     </a>
    </li>
   </ul>
@@ -232,8 +243,8 @@
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -251,24 +262,38 @@ communicate, and to find novel ways to improve psychiatric conditions.</p>
 <h2>Research goals at NIH<a class="headerlink" href="#research-goals-at-nih" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="inter-region-communication">
 <h3>Inter-region communication<a class="headerlink" href="#inter-region-communication" title="Permalink to this headline">¶</a></h3>
-<p>This is a hard question. One would need so, so many neurons recorded simultaneously from many regions in order to start
-to believe the analysis. Local field potentials are easier, but observing them passively is useless to this end.
-Therefore, perturbation is essential. I perturb distal parts of neurons, but not the cell bodies (hopefully).</p>
+<p>How do brain regions communicate? Is that even a relevant question? Is the brain modular at all? One would need so, so many neurons recorded simultaneously from many regions in order to start
+to believe any analysis. Local field potentials are easier, but observing them passively is useless to this end.
+Therefore, perturbation is essential. I perturb distal parts of neurons, but not the cell bodies. To this end, I inject virus carrying code for light-sensitive proteins in ventral hippocampus, wait for it to travel to prefrontal cortex, and shine the laser there. In a second brain surgery, I implant recording
+leads in both brain regions.</p>
 </div>
 <div class="section" id="applications">
 <h3>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h3>
 <p>People with psychiatric conditions such as schizophrenia have impaired working memory. I use a working memory task in mice
 as I perturb the neurons as described above.</p>
 </div>
+<div class="section" id="my-principles">
+<h3>My principles<a class="headerlink" href="#my-principles" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Industry-grade code for academia-grade research</p></li>
+<li><p>Unit testing for every new repo</p></li>
+<li><p>Carry every data analysis to its breaking point and learn from it</p></li>
+</ul>
+</div>
 </div>
 <div class="section" id="some-web-pages-with-notes-and-open-source-data-results">
 <h2>Some web pages with notes and open-source data results<a class="headerlink" href="#some-web-pages-with-notes-and-open-source-data-results" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="http://mmyros.github.io/mmyros_iu.github.io/">Here</a> is my old page from grad school</p></li>
+<li><p><a class="reference external" href="https://github.com/mmyros">Github profile</a></p></li>
+<li><p><a class="reference external" href="https://gitlab.com/mmyros">Gitlab profile</a></p></li>
+<li><p><a class="reference external" href="https://github.com/mmyros/bayes-window">Bayes window</a> and <a class="reference external" href="https://mmyros.github.io/bayes-book/index.html">(docs here)</a> is my library
+for streamlining Bayesian regression + visualization in one step. It’s under heavy development</p></li>
+<li><p><a class="reference external" href="https://gitlab.com/mmyros/run_spikesorting">run_spikesorting</a> is a library with CLI for one-stop spikesorting using my branch of Pykilosort</p></li>
 <li><p><span class="xref myst">Here</span> are my notes on development in python and jupyter, primarily to answer FAQs from students</p></li>
 <li><p><a class="reference external" href="http://mmyros.herokuapp.com/">Here</a> are some interactive pretty visualizations/dashboards of data I made using generative models</p></li>
 <li><p><a class="reference external" href="https://mmyros.gitlab.io/ermines-steinmetz/">Here</a> are some visualizations of an open-source dataset</p></li>
 <li><p><a class="reference external" href="https://mmyros.github.io/data_pfc3/intro.html">Here</a> is another</p></li>
+<li><p><a class="reference external" href="http://mmyros.github.io/mmyros_iu.github.io/">Here</a> is my old page from grad school</p></li>
 </ul>
 </div>
 <div class="section" id="cv">
@@ -330,16 +355,21 @@ from Sanworks LLC. They had some Python code, but it broke a while ago.</p></li>
 
               </div>
               
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='right-next' id="next-link" href="sci_comp_notes.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Scientific computing notes</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
         </div>
     </div>
-    
-    
-    <div class='prev-next-bottom'>
-        
-    <a class='right-next' id="next-link" href="sci_comp_notes.html" title="next page">Scientific computing notes</a>
-
-    </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
@@ -354,11 +384,8 @@ from Sanworks LLC. They had some Python code, but it broke a while ago.</p></li>
 
       </div>
     </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-    
-  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
-
-
-    
   </body>
 </html>
