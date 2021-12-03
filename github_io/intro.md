@@ -8,8 +8,8 @@ communicate, and to find novel ways to improve psychiatric conditions.
 Let's unpack that.
 ## Research goals at NIH 
 ### Inter-region communication
-This is a hard question. One would need so, so many neurons recorded simultaneously from many regions in order to start 
-to believe the analysis. Local field potentials are easier, but observing them passively is useless to this end.
+How do brain regions communicate? Is that even a relevant question? Is the brain modular at all? One would need so, so many neurons recorded simultaneously from many regions in order to start 
+to believe any analysis. Local field potentials are easier, but observing them passively is useless to this end.
 Therefore, perturbation is essential. I perturb distal parts of neurons, but not the cell bodies. To this end, I inject virus carrying code for light-sensitive proteins in ventral hippocampus, wait for it to travel to prefrontal cortex, and shine the laser there. In a second brain surgery, I implant recording 
 leads in both brain regions.
 
