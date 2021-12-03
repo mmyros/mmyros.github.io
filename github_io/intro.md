@@ -10,19 +10,30 @@ Let's unpack that.
 ### Inter-region communication
 This is a hard question. One would need so, so many neurons recorded simultaneously from many regions in order to start 
 to believe the analysis. Local field potentials are easier, but observing them passively is useless to this end.
-Therefore, perturbation is essential. I perturb distal parts of neurons, but not the cell bodies (hopefully).  
+Therefore, perturbation is essential. I perturb distal parts of neurons, but not the cell bodies. To this end, I inject virus carrying code for light-sensitive proteins in ventral hippocampus, wait for it to travel to prefrontal cortex, and shine the laser there. In a second brain surgery, I implant recording 
+leads in both brain regions.
+
+
 ### Applications
 People with psychiatric conditions such as schizophrenia have impaired working memory. I use a working memory task in mice 
 as I perturb the neurons as described above. 
  
- 
+### My principles
+* Industry-grade code for academia-grade research
+* Unit testing for every new repo
+* Carry every data analysis to its breaking point and learn from it
 
 ## Some web pages with notes and open-source data results
-* [Here](http://mmyros.github.io/mmyros_iu.github.io/) is my old page from grad school
+* [Github profile](https://github.com/mmyros)
+* [Gitlab profile](https://gitlab.com/mmyros)
+* [Bayes window](https://github.com/mmyros/bayes-window) and [(docs here)](https://mmyros.github.io/bayes-book/index.html) is my library 
+for streamlining Bayesian regression + visualization in one step. It's under heavy development
+* [run_spikesorting](https://gitlab.com/mmyros/run_spikesorting) is a library with CLI for one-stop spikesorting using my branch of Pykilosort 
 * [Here](dev.to/mmyros) are my notes on development in python and jupyter, primarily to answer FAQs from students
 * [Here](http://mmyros.herokuapp.com/) are some interactive pretty visualizations/dashboards of data I made using generative models
 * [Here](https://mmyros.gitlab.io/ermines-steinmetz/) are some visualizations of an open-source dataset
 * [Here](https://mmyros.github.io/data_pfc3/intro.html) is another
+* [Here](http://mmyros.github.io/mmyros_iu.github.io/) is my old page from grad school
 
 ## CV
 * [Informal](), 
