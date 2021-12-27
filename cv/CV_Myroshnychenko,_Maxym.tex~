@@ -1,0 +1,611 @@
+\documentclass[10pt]{article}
+
+% This is a helpful package that puts math inside length specifications
+\usepackage{calc}
+
+
+% Simpler bibsection for CV sections
+% (thanks to natbib for inspiration)
+\makeatletter
+\newlength{\bibhang}
+\setlength{\bibhang}{1em}
+\newlength{\bibsep}
+ {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
+\newenvironment{bibsection}%
+        {\vspace{-\baselineskip}\begin{list}{}{%
+       \setlength{\leftmargin}{\bibhang}%
+       \setlength{\itemindent}{-\leftmargin}%
+       \setlength{\itemsep}{\bibsep}%
+       \setlength{\parsep}{\z@}%
+        \setlength{\partopsep}{0pt}%
+        \setlength{\topsep}{0pt}}}
+        {\end{list}\vspace{-.6\baselineskip}}
+\makeatother
+
+% Layout: Puts the section titles on left side of page
+\reversemarginpar
+	
+%
+%         PAPER SIZE, PAGE NUMBER, AND DOCUMENT LAYOUT NOTES:
+%
+% The next \usepackage line changes the layout for CV style section
+% headings as marginal notes. It also sets up the paper size as either
+% letter or A4. By default, letter was used. If A4 paper is desired,
+% comment out the letterpaper lines and uncomment the a4paper lines.
+%
+% As you can see, the margin widths and section title widths can be
+% easily adjusted.
+%
+% ALSO: Notice that the includefoot option can be commented OUT in order
+% to put the PAGE NUMBER *IN* the bottom margin. This will make the
+% effective text area larger.
+%
+% IF YOU WISH TO REMOVE THE ``of LASTPAGE'' next to each page number,
+% see the note about the +LP and -LP lines below. Comment out the +LP
+% and uncomment the -LP.
+%
+% IF YOU WISH TO REMOVE PAGE NUMBERS, be sure that the includefoot line
+% is uncommented and ALSO uncomment the \pagestyle{empty} a few lines
+% below.
+%
+
+%% Use these lines for letter-sized paper
+\usepackage[paper=letterpaper,
+            %includefoot, % Uncomment to put page number above margin
+            marginparwidth=1.2in,     % Length of section titles
+            marginparsep=.05in,       % Space between titles and text
+            margin=1in,               % 1 inch margins
+            includemp]{geometry}
+
+%% Use these lines for A4-sized paper
+%\usepackage[paper=a4paper,
+%            %includefoot, % Uncomment to put page number above margin
+%            marginparwidth=30.5mm,    % Length of section titles
+%            marginparsep=1.5mm,       % Space between titles and text
+%            margin=25mm,              % 25mm margins
+%            includemp]{geometry}
+
+%% More layout: Get rid of indenting throughout entire document
+\setlength{\parindent}{0in}
+
+%% This gives us fun enumeration environments. compactitem will be nice.
+\usepackage{paralist}
+
+%% Reference the last page in the page number
+%
+% NOTE: comment the +LP line and uncomment the -LP line to have page
+%       numbers without the ``of ##'' last page reference)
+%
+% NOTE: uncomment the \pagestyle{empty} line to get rid of all page
+%       numbers (make sure includefoot is commented out above)
+%
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+%\pagestyle{empty}      % Uncomment this to get rid of page numbers
+\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyfootoffset{\marginparsep+\marginparwidth}
+\newlength{\footpageshift}
+\setlength{\footpageshift}
+          {0.5\textwidth+0.5\marginparsep+0.5\marginparwidth-2in}
+\lfoot{\hspace{\footpageshift}%
+       \parbox{4in}{\, \hfill %
+%                     \arabic{page} of \protect\pageref*{LastPage} % +LP
+                   \arabic{page}                               % -LP
+                    \hfill \,}}
+
+% Finally, give us PDF bookmarks
+\usepackage{color,hyperref}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+\hypersetup{colorlinks=false,breaklinks,
+            linkcolor=darkblue,urlcolor=darkblue,
+            anchorcolor=darkblue,citecolor=darkblue}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The title (name) with a horizontal rule under it
+%
+% Usage: \makeheading{name}
+%
+% Place at top of document. It should be the first thing.
+\newcommand{\makeheading}[1]%
+        {\hspace*{-\marginparsep minus \marginparwidth}%
+         \begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
+                {\large \bfseries #1}\\[-0.15\baselineskip]%
+                 \rule{\columnwidth}{1pt}%
+         \end{minipage}}
+
+% The section headings
+%
+% Usage: \section{section name}
+%
+% Follow this section IMMEDIATELY with the first line of the section
+% text. Do not put whitespace in between. That is, do this:
+%
+%       \section{My Information}
+%       Here is my information.
+%
+% and NOT this:
+%
+%       \section{My Information}
+%
+%       Here is my information.
+%
+% Otherwise the top of the section header will not line up with the top
+% of the section. Of course, using a single comment character (%) on
+% empty lines allows for the function of the first example with the
+% readability of the second example.
+\renewcommand{\section}[2]%
+        {\pagebreak[2]\vspace{1.3\baselineskip}%
+         \phantomsection\addcontentsline{toc}{section}{#1}%
+         \hspace{0in}%
+         \marginpar{
+         \raggedright \scshape #1}#2}
+
+% An itemize-style list with lots of space between items
+\newenvironment{outerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[#1]}{\end{itemize}%
+         \vspace{-.6\baselineskip}}
+
+% An environment IDENTICAL to outerlist that has better pre-list spacing
+% when used as the first thing in a \section
+\newenvironment{lonelist}[1][\enskip\textbullet]%
+        {\vspace{-\baselineskip}\begin{list}{#1}{%
+        \setlength{\partopsep}{0pt}%
+        \setlength{\topsep}{0pt}}}
+        {\end{list}\vspace{-.6\baselineskip}}
+
+% An itemize-style list with little space between items
+\newenvironment{innerlist}[1][\enskip\textbullet]%
+        {\begin{compactitem}[#1]}{\end{compactitem}}
+
+% An environment IDENTICAL to innerlist that has better pre-list spacing
+% when used as the first thing in a \section
+\newenvironment{loneinnerlist}[1][\enskip\textbullet]%
+        {\vspace{-\baselineskip}\begin{compactitem}[#1]}
+        {\end{compactitem}\vspace{-.6\baselineskip}}
+
+% To add some paragraph space between lines.
+% This also tells LaTeX to preferably break a page on one of these gaps
+% if there is a needed pagebreak nearby.
+\newcommand{\blankline}{\quad\pagebreak[2]}
+
+% Uses hyperref to link DOI
+\newcommand\doilink[1]{\href{http://dx.doi.org/#1}{#1}}
+\newcommand\doi[1]{doi:\doilink{#1}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Begin CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\makeheading{Maxym V. Myroshnychenko}
+
+\section{Contact Information}
+
+\newlength{\rcollength}\setlength{\rcollength}{1.85in}
+\begin{tabular}[t]{@{}p{\textwidth-\rcollength}p{\rcollength}}
+ & \\
+\vspace{-.45in}
+    \textit{E-mail:}\linebreak
+\href{mailto:mmyros@gmail.com}{mmyros@gmail.com}\\
+%\vspace{.1in}
+ {\it Web:}\\
+ \href{mmyros.github.io/github.io}{mmyros.github.io/github.io}\\
+\end{tabular}
+
+\section{Education}
+\textbf{Indiana University}
+\begin{innerlist}
+\item[] PhD, 
+             Program in Neuroscience \hfill {August 2011 - December 2017}
+\end{innerlist}
+
+\textbf{University of Nevada, Las Vegas}
+\begin{innerlist}
+	\item[] B.S.,
+             Biology, Biomathematics \hfill {August 2011}
+
+\end{innerlist}
+
+\section{Laboratory affiliations}
+{\textbf{Integrative Neuroscience section, \\National Institute of Neurological Disorders and Stroke}}
+\begin{outerlist}
+\item[] \textit{PI: Joshua Gordon, David Kupferschmidt}
+  \hfill{February 2018 - present}
+    \begin{innerlist}
+    \item Tetrode and shank recordings from awake mice
+    \item Closed-loop optogenetic stimulation
+    \item T-maze 
+    
+    \end{innerlist}
+\end{outerlist}
+\vspace{.15in}
+
+\href{http://science.iupui.edu/people/christopher-lapish}{\textbf{Indiana University Purdue University Indianapolis}}
+\begin{outerlist}
+\item[] \textit{PI: Christopher Lapish}
+  \hfill{August 2014 - December 2017}
+    \begin{innerlist}
+    \item Tetrode and shank recordings from anesthetized and awake rats
+    \item Data analysis: state space, spectral decomposition, machine learning
+    \item Development of automatic behavior collection and analysis tools
+    \item Contribution to VTA/mPFC computational modeling (collaboration with A. Kuznetsov, IUPUI Math)
+    \item TH-Cre optogenetics with anesthetized electrophysiology
+    \end{innerlist}
+\end{outerlist}
+\vspace{.15in}
+
+\href{http://www.indiana.edu/~iubphys/faculty/jmbeggs.shtml}{\textbf{Indiana University}}
+\begin{outerlist}
+\item[] \textit{PI: John Beggs}
+  \hfill{August 2011 to August 2014}
+    \begin{innerlist}
+    \item Statistical analyses of in vitro 512-electrode array data from mouse/rat hippocampus (collaboration with Litke lab, UC Santa Cruz), in vivo Utah array primate data (collaboration with Hatsopulous lab, U. of Chicago)
+    \item Transfer entropy, mutual information, community detection
+    \end{innerlist}
+\end{outerlist}
+
+\section{Research projects}
+
+\textbf{Closed-loop excitation of hippocampal terminals from prefrontal cortex}
+\begin{innerlist}
+\item[] Using hippocampal theta to guide excitation of ventral hippocampal inputs to mPFC. Working memory performance will be tested while using this closed-loop excitation paradigm.
+\end{innerlist}
+\blankline
+
+\textbf{Cortico-hippocampal interactions in the radial arm maze}
+\begin{innerlist}
+\item[] Characterizing the process of planning in delayed spatial win-shift task using optogenetic inhibition of HC; shank and wire mPFC recordings 
+\end{innerlist}
+\blankline
+
+\textbf{Effects of ethanol on interactions beetween VTA GABA and DA neurons and mPFC}
+\begin{innerlist}
+\item[] Dissecting local and distal dynamic connectivity of ventral tegmental area using dual-site single-unit recordings, optogenetic stimulation, and pharmacological manipulations as a part of France-USA computational modeling collaboration
+\end{innerlist}
+%%%%%%%%%%%%%
+
+
+
+\bibliographystyle{plain}
+\section{Publications} \begin{bibsection}
+
+\item Padilla-Coreano N, Canetta S, Mikofsky R, Alway E, Passecker J, {\bf Myroshnychenko MV}, Garcia-Garcia AL, Warren R, Teboul E, Blackman DR, Morton MP, Hupalo S, Tye KM, Kellendonk C, Kupferschmidt DA, Gordon JA. Hippocampal-prefrontal theta transmission regulates avoidance behavior. Neuron, 104(3), 601-610.e4. 
+  
+\item {\bf Myroshnychenko M},  Seamans JK, Philips AG,  Lapish CC (2017). Temporal dynamics of hippocampal and medial prefrontal cortex interactions during the delay period of a spatial working memory task. Cerebral cortex, 27(11), 5331-5342
+
+\item Morozova E O, {\bf Myroshnychenko M}, Zakharov D, di Volo M, Gutkin B, Lapish C, Kuznetsov A (2016). Contribution of synchronized GABAergic neurons to dopaminergic neuron firing and bursting. Journal of Neurophysiology, 116(4), 1900-1923
+
+\item Timme NM, Ito S, {\bf Myroshnychenko M}, Nigam S, Shimono M, Yeh FC, Hottowy P, Litke AM, Beggs JM. (2016) High-Degree Neurons Feed Cortical Computations. PLoS Comput Biol. May 9;12(5):e1004858
+
+\item Nigam S, Shimono M,  Ito S,  Yeh F, Timme N,  {\bf Myroshnychenko M},  Lapish C,  Tosi Z,  Hottowy P,  Smith W,  Masmanidis S,  Litke A,  Sporns O,   Beggs JM. (2016) Rich-club organization in the functional micro-connectome. \emph{Journal of Neuroscience} Jan 20;36(3):670-84 
+
+\item Timme N, Ito S, {\bf Myroshnychenko M}, Yeh F, Hiolski E, Hottowy P, Beggs JM. (2014) Multiplex networks of cortical and hippocampal neurons revealed at different timescales. \emph{PLoS ONE}  9(12): e115764
+
+
+
+\end{bibsection}
+\section{Oral presentations} \begin{bibsection}
+
+\item {\bf Myroshnychenko MV}, Kupferschmidt D, Gordon JA. Closed-loop sinusoidal stimulation of ventral hippocampal terminals in prefrontal cortex preferentially entrains circuit activity at distinct frequencies and delays. Society for Computational Neuroscience meeting, Barcelona, Spain, 2019
+
+\end{bibsection}
+
+\section{Poster presentations} \begin{bibsection}
+
+\item {\bf Myroshnychenko MV}, Kupferschmidt D, Gordon JA. Closed-loop sinusoidal stimulation of ventral hippocampal terminals in prefrontal cortex preferentially entrains circuit activity at distinct frequencies and delays. Society for Neuroscience meeting, Chicago, IL, November 2019
+  
+\item {\bf Myroshnychenko MV}, Kupferschmidt D, Gordon JA. Closed-loop sinusoidal stimulation of ventral hippocampal terminals in prefrontal cortex preferentially entrains circuit activity at distinct frequencies and delays. Society for Computational Neuroscience meeting, Barcelona, Spain, July 2019
+
+\item Alway E, Mikofsky RM, Padilla-Coreano N, Canetta S, {\bf Myroshnychenko MV}, Passecker JP, Hupalo S, Kupferschmidt DA, Gordon JA. Frequency-specific sinusoidal optogenetic stimulation of hippocampal-prefrontal circuit alters locomotion and avoidance behavior. NIH Postbac Poster Day 2019, Bethesda, MD (received Poster Award);
+Society for Neuroscience DC Metro Area Chapter Meeting, University of Maryland, College Park, MD.
+
+\item {\bf Myroshnychenko M},  Lapish CC. Prefrontal-hippocampal theta coherence, sharp wave ripples, and bursts of cortical unit activity underlie choices and encoding in the radial arm maze. Society for Neuroscience meeting, Chicago, IL, 2015
+
+\item {\bf Myroshnychenko M},  Lapish CC. Prefrontal-hippocampal theta coherence, sharp wave ripples, and bursts of cortical unit activity underlie choices and encoding in the radial arm maze. Society for Computational Neuroscience meeting, Prague, Czech Republic, 2015
+
+\item {\bf Myroshnychenko M}, Morozova E, Kuznetsov A, Lapish CC. Dissecting reward circuitry with simultaneous single-unit recording in PFC and VTA. Research society for alcohol, San Antonio, TX, 2015
+
+\item {\bf Myroshnychenko M}, Morozova EO,  Kuznetsov A, Lapish CC. Dissecting reward circuitry with simultaneous single-unit recording in PFC and VTA. Indianapolis chapter of Society for Neuroscience meeting, 2014
+
+\item {\bf Myroshnychenko M},  Nicholson B,  Yeh F,  Brickman B,  Dahmen K,  Litke A,  Beggs J. Critical features of massively parallel cortical single-unit recordings. Gill symposium, Indiana University, 2013
+
+
+\item Janetsian SS, {\bf Myroshnychenko M}, Lapish CL. Changes in neuronal firing and oscillatory activity in the PFC following Methamphetamine sensitization. Society for Neuroscience meeting, 2013
+
+\item {\bf Myroshnychenko MV}, Heaney CF, Bolton MM, Sabbagh JJ, Kinney JW  "Acute Administration of Ketamine Impairs Learning in
+	Trace Cued Fear Conditioning: Validation of an Animal Model
+	of Schizophrenia."  21th Annual McNair Research Conference. Oklahoma State University. February 24, 2011
+
+\item {\bf Myroshnychenko MV}, Heaney CF, Bolton MM, Sabbagh JJ, Kinney JW. "Acute Administration of Ketamine Impairs Learning in
+	Trace Cued Fear Conditioning: Validation of an Animal Model
+	of Schizophrenia."The 2010 McNair Scholars Institute poster presentation. University of Nevada, Las Vegas, NV. October 21, 2010.
+	
+\item {\bf Myroshnychenko MV}, Estevez J, Harbour D.  "{\it Krameria erecta} and {\it Oenotheria biennis} extracts increase density of {\it Staphylococcus epidermidis} biofilm."  The 2010 McNair Scholars Institute poster presentation. University of Nevada, Las Vegas, NV. October 21, 2010.
+
+    \item Zarrabi K, Nitrosesatien N, Koh J, Naserddin S, Abanyan E, {\bf Myroshnychenko M}, Esteves J, Harbour D, Porter H. Antibacterial Potential and GC-MS Studies of Select Medicinal Plants of Mojave Desert. Presented at the 2009 Northwest Regional Meeting  of the American Chemical Society, Pacific Lutheran University, Tacoma, WA.
+\end{bibsection}
+
+
+\section{Awards}
+Fellowships
+\begin{innerlist}
+	\item National Science Foundation Biomathematics
+	Scholar \hfill {May 2010 - May 2011}	
+	\item University of Nevada, Las Vegas McNair Summer Institute Fellowship \hfill{May 2010}
+\end{innerlist}
+\blankline
+
+
+\section{Teaching Experience}
+
+{\textbf{Dynamical Neuroscience summer school}}, 
+\begin{outerlist}
+	\item[] \textit{Lecturer}
+	\hfill {Summer 2019}
+	Three-lecture series of hands-on demos on the analysis of big neuroscience data
+\end{outerlist}
+\vspace{.15in}
+
+{\textbf{Indiana University}}, 
+\begin{outerlist}
+	\item[] \textit{Teaching assistant}%
+	\hfill {Fall 2014}
+	Addiction neuroscience lecture and lab. Responsible for grading, lab preparation
+\end{outerlist}
+\vspace{.15in}
+
+{\textbf{The Lovaas Center of Las Vegas}}, Las Vegas, Nevada
+\begin{outerlist}
+	\item[] \textit{Tutor}%
+	\hfill {June 2009 to August 2009}
+	
+	Applied Behavioral Analysis for children with autism.
+\end{outerlist}
+\vspace{.15in}
+{\textbf{College of Southern Nevada}},
+Las Vegas, Nevada
+\begin{outerlist}
+	\item[] \textit{Tutor}%
+	\hfill {September 2009 to May 2009}
+	
+	Responsible for coaching students on various subjects including biology, writing, and mathematics. 
+	
+\end{outerlist}
+
+
+\section{Summer school attendance}
+The Neuropixels course (UCL) \hfil {March 2019}
+\begin{innerlist}
+	\item Spike sorting massively parallel recordings
+	\item Hands-on experience with Neuropixels probes
+\end{innerlist}
+CoSMo (Northwestern University) \hfill {June 2013}	
+\begin{innerlist}
+	\item  Computational Sensory-Motor Neuroscience, organizer K. Kording
+	\item  Machine learning, Bayesian and neural net approaches to decoding
+\end{innerlist}
+\vspace{.15in}
+CRCNS \hfill {July 2014}	
+\begin{innerlist}
+	\item  Berkeley summer course in mining and modeling of neuroscience data, organizers Jeff Teeters and Fritz Sommer
+	\item  STC, model fitting, ICA, GLM
+\end{innerlist}
+
+\blankline
+
+
+\section{Skills}
+%\vspace{-.15in}
+Experimental techniques
+\begin{innerlist}
+\item Stereotaxic surgery
+\item Awake behaving/anesthetized extracellular electrophysiology
+\item Spikesorting shank data (spyking circus, phy packages)
+\item Optogenetics
+\end{innerlist}
+
+%\vspace{.15in}
+Programming
+\begin{innerlist}
+\item Python, Matlab, mex/C, git, Linux
+\item Databases: Datajoint, MySQL, xarray
+\item Graphics: matplotlib, seaborn, holoviews, altair
+\end{innerlist}
+
+%\vspace{.15in}
+Real-time processing
+\begin{innerlist}
+\item Linux OS, Open Ephys, Arduino, PulsePal
+\end{innerlist}
+
+
+
+Scholarships and grants
+\begin{innerlist}
+\item University of Nevada, Las Vegas Scholarship \hfill{November 2009}
+\item College of Southern Nevada Scholarship \hfill{November 2008}
+\item Federal {\sc smart} grant \hfill{2009 - 2011}
+\end{innerlist}
+
+\blankline
+
+\section{References}
+\vspace{-.25in}
+\begin{outerlist}
+\item Dr. Joshua Gordon  \href{mailto:joshua.gordon@nih.gov}{joshua.gordon@nih.gov}, National Institutes of Health
+\item Dr. David Kupferschmidt \href{mailto:david.kupferschmidt@nih.gov}{david.kupferschmidt@nih.gov}, National Institutes of Health 
+\item Dr. Christopher Lapish \href{mailto:lapisc@gmail.com}{lapishc@gmail.com}, Indiana University Purdue University Indianapolis
+\end{outerlist}
+
+\end{document}
+
+
+%%%%%%%%%%%%%%%%%%%
+\section{Professional Society Affiliations}
+%
+Member of:
+\begin{innerlist}
+\item Computational Neuroscience society
+\item Research society on Alcoholism
+\item Society for Neuroscience
+\item Molecular and Cellular Cognition society 
+%\item The Bioinformatics Organization
+%\item \href{http://www.ptk.org/}{Phi Theta Kappa} Honors Society of two-year colleges 
+\end{innerlist}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\section{Research projects}
+Indiana University
+\begin{outerlist}
+\item C
+
+\end{outerlist}
+
+University of Nevada, Las Vegas
+\begin{outerlist}
+	\item Compounds affecting learning and memory in a rat model of schizophrenia. Includes behavioral assessment in Morris water maze and fear conditioning, surgery, and tissue work. 
+Principal investigator: Professor Jefferson Kinney, University of Nevada, Las Vegas \hfill{May 2010-January 2011}
+\end{outerlist}
+
+\blankline
+
+College of Southern Nevada
+\begin{outerlist}	
+\item Effects of select medicinal plants of Mojave desert on biofilm formation by common 
+nosocomial pathogens. Principal investigator: Dr. D. Harbour, College of Southern 
+Nevada \hfill{June-August,2009}
+	\item Antibacterial effects of select medicinal plants of Mojave Desert. Principal investigator: 
+Dr. K. Zarrabi, College of Southern Nevada  \hfill{January-May,2009}
+\end{outerlist}
+
+\section{Research Appointments}
+%
+\textbf{Graduate Research Assistant} \hfill {May 2010 to present}
+\begin{innerlist}
+\item[] {Department of Physics},\\
+        Indiana University
+        \href{http://www.indiana.edu/~iubphys/faculty/jmbeggs.shtml}{John Beggs' Laboratory}\\
+        Principal investigator: Associate Professor John Beggs
+%         ---------------------------------------------
+
+    \end{innerlist}
+    \textbf{Research Assistant} \hfill {May 2010 to January 2011}
+\begin{innerlist}
+
+\item[] \href{http://www.psychology.unlv.edu/}{Department of Psychology},\\
+        University of Nevada, Las Vegas
+        \href{http://faculty.unlv.edu/jkinney/}{Behavior Neuroscience Laboratory}\\
+        Principal investigator: Professor Jefferson Kinney
+
+\end{innerlist}
+
+
+Others
+\begin{innerlist} 
+\item Recruitment grant. University of Rochester \hfill{September 2010}
+\item Recruitment grant. University of Indiana, \newline Bloomington \hfill{September 2010}
+\item BIOCOMP Conference grant. Biomathematics Scholars program \hfill{June 2010}
+\item Dean's Honors list. University of Nevada, Las Vegas \hfill{May 2010}
+
+\end{innerlist}
+
+
+
+% \pagebreak
+\section{Research 
+Skills}
+Behavioral techniques: 
+\begin{innerlist}
+\item Morris water maze 
+\item Cued and contextual fear conditioning
+\item Tail flick test
+\item Prepulse inhibition test
+\end{innerlist}
+
+\blankline
+
+Bench techniques:
+\begin{innerlist}
+\item Western blotting
+\item Surgery, including perfusion and dissection
+\item Immunohistochemistry using the ABC kit
+\item Mass spectrometry
+\item Affinity chromatography
+\item Gas chromatography 
+\end{innerlist}
+
+\blankline
+
+Computer Applications: 
+\begin{innerlist}
+\item R 
+\item Mathematica 
+\item {\sc matlab}
+\item Linux operating system
+\item SPSS
+\item \TeX{} (\LaTeX{}, B\textsc{ib}\TeX{})
+\end{innerlist}
+
+\section{Coursework}
+% \blankline
+\textbf{University of Nevada, Las Vegas}
+\begin{outerlist}
+\item[] \textit{Advanced Independent Study}    \hfill {Spring - summer 2011}	 
+	\begin{innerlist}
+		\item A study of Bayesian modeling		
+% 		\item A statistics course developed in collaboration with a faculty member from the department of Mathematics
+
+% 		\item Self-developed curriculum will include independent readings and discussion with the faculty mentor
+	\end{innerlist}
+%\end{outerlist}
+\item[] \textit{Biomathematics}    \hfill{Fall 2010, Spring 2011}
+	\begin{innerlist}
+		\item An experimental, NSF-funded two-semester course with a total enrollment of four students
+		\item Discrete difference equations, differential equations, probability theory, which are applied to mathematical models of biological systems
+		\item Software applications including Mathematica, {\sc matlab} and Maple
+		\item Second semester of the course includes design and completion of an independent project
+	\end{innerlist}
+\item[] \textit{Current topics in statistics and applied mathematics} \hfill{February 26, 2010}
+	\begin{innerlist}
+		\item Applied for funding
+		\item Undergraduate workshop funded by the Statistical and Applied Mathematical Sciences Institute
+		\item Topics include analysis of object data among others
+	\end{innerlist}
+\end{outerlist}	
+	\begin{outerlist}
+\item[] \textit{Advanced Topics in Molecular Biology}    \hfill {Fall 2010}	 
+	\begin{innerlist}
+		\item Graduate-level course based on primary scholarship
+		\item Weekly discussion of latest articles from \textit{Cell, Nature}, and \textit	{Science}
+		\item Students present recent publications of their choice
+	\end{innerlist}
+\end{outerlist}
+
+\blankline
+
+\textbf{College of Southern Nevada}
+\begin{outerlist}
+\item[] \textit{Honors Microbiology}    
+ \hfill{Spring 2009}
+	\begin{innerlist}
+		\item A primary literature intensive course
+		\item A total enrollment of six students 
+	\end{innerlist}
+	
+For a description of additional coursework, please refer to the attached unofficial transcipt. 
+\end{outerlist}
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% End CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%

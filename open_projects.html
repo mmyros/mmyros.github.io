@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; Maxym &#34;Max&#34; Myroshnychenko</title>
+    <title>My open-source projects on github &#8212; Maxym &#34;Max&#34; Myroshnychenko</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -42,8 +42,17 @@
     <script src="_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <link rel="index" title="Index" href="#" />
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Scientific computing notes" href="sci_comp_notes.html" />
+    <link rel="prev" title="Some resources" href="links.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -82,14 +91,14 @@
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="links.html">
    Some resources
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="open_projects.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    My open-source projects on github
   </a>
  </li>
@@ -161,6 +170,23 @@
             </button>
             
             
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/open_projects.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
             <!-- Source interaction buttons -->
 
             <!-- Full screen (wrap in <a> to have style consistency -->
@@ -177,6 +203,24 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-highlights">
+   Some highlights
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -185,19 +229,74 @@
         
               <div>
                 
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="section" id="my-open-source-projects-on-github">
+<h1>My open-source projects on github<a class="headerlink" href="#my-open-source-projects-on-github" title="Permalink to this headline">¶</a></h1>
+<p>Outside my day job, I contribute to open-source projects. I made a few on my own time that are not used in the lab,
+but may help someone out there.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/mmyros">https://github.com/mmyros</a></p>
+</div>
+<div class="section" id="some-highlights">
+<h2>Some highlights<a class="headerlink" href="#some-highlights" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/mmyros/cluster_quality">Cluster quality</a>: measurements of how well spikes were isolated from noise.
+Parallelized and packaged into a CLI interface.</p></li>
+<li><p><a class="reference external" href="https://github.com/mmyros/phy_extras">Phy extras</a> are enhancements to the popular Phy interface for inspecting
+clustering. Includes:</p>
+<ul>
+<li><p>Alt+R to cycle through raw data and waveform views: raw, highpass, mean+highpass, median+highpass, highpass+median, highpass+mean</p></li>
+<li><p>s for Scrub outliers using Local Outlier Factor (also implemented are Robust covariance, One-Class SVM, and Isolation Forest. See plugins/custom_split.py)</p></li>
+<li><p>t for Time split using gaussian hierarchical model</p></li>
+<li><p>x for k-means split</p></li>
+<li><p>d for GAC split (Due to Swindale lab, gradient ascent clustering (GAC) algorithm, a variant of the mean-shift algorithm)</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/mmyros/PulsePal">PulsePal port to Python 3</a>: Port to Python 3 of a mainly-Matlab project
+from Sanworks LLC. They had some Python code, but it broke a while ago.</p></li>
+</ul>
+</div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
         
             <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="links.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Some resources</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="sci_comp_notes.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Scientific computing notes</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
