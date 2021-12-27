@@ -1,0 +1,18 @@
+# Some resources
+## Summary
+* [Github profile](https://github.com/mmyros)
+* [Gitlab profile](https://gitlab.com/mmyros)
+## HTML 
+* [Bayes window](https://github.com/mmyros/bayes-window) and [(docs here)](https://mmyros.github.io/bayes-book/index.html) is my library 
+for streamlining Bayesian regression + visualization in one step. It's under heavy development
+* [run_spikesorting](https://gitlab.com/mmyros/run_spikesorting) is a library with CLI for one-stop spikesorting using my branch of Pykilosort 
+* [Some notes on development in python and jupyter](http://dev.to/mmyros), primarily to answer FAQs from students
+* [Some interactive pretty visualizations/dashboards](http://mmyros.herokuapp.com/)  of data I made using generative models
+* [My students' visualizations of an open-source dataset](https://mmyros.gitlab.io/ermines-steinmetz/) I led as a lead TA of Neuromatch summer school
+* [Another open dataset](https://mmyros.github.io/data_pfc3/intro.html) 
+* [My old page from grad school](http://mmyros.github.io/mmyros_iu.github.io/) 
+
+## CV
+* [Informal](), 
+* [formal as html](https://mmyros.github.io/extras/cv_myroshnychenko.html)
+* [formal as pdf](https://www.dropbox.com/s/12cgy9fgsjeldvp/CV_Myroshnychenko%2C_Maxym.pdf?dl=0) 
