@@ -16,5 +16,5 @@
 
 
 ## CV
-* [Informal resume](file:///home/m/mmy/mmyros.github.io/github_io/_build/html/resume.html) 
+* [Informal resume](https://mmyros.github.io/resume.html) 
 * [formal as pdf](https://github.com/mmyros/mmyros.github.io/blob/master/github_io/cv/CV_Myroshnychenko%2C_Maxym.pdf)
