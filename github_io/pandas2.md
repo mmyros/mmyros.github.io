@@ -1,4 +1,6 @@
-Very often, you need to do something to groups of rows of a dataframe that match some condition, for instance a certain mouse or brain region. The most intuitive solution is to use a for loop.
+# Pandas tools you didn’t know you needed 2: Groupby
+
+Often you need to do something to groups of rows of a dataframe that match some condition, for instance a certain mouse or brain region. The most intuitive solution is to use a for loop.
 
 For instance, let's start with this dataframe:
 

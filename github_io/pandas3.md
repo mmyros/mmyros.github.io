@@ -1,3 +1,5 @@
+# Pandas tools you didn't know you needed 3: groupby+from_records
+
 
 Say we are trying to fetch unique instances of several conditions: 
 ```python

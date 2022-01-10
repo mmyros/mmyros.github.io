@@ -1,3 +1,5 @@
+# Pandas tools you didn’t know you needed 1: Apply 
+
 Dataframe rows can contain arrays rather than a single value. This is the case with Datajoint's "blobs." Let's examine an instance of such a dataframe I fetched from a datajoint table:
 
 |    | fid                       | brain_region   |   single_unit |   single_unit_phy | spike_time                                                               | waveform   | snr   |
