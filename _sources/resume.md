@@ -34,4 +34,4 @@
 ### General 
 - 3d design and printing
 - Personnel training
-- Project management, Kuban
+- Project management, kanban
