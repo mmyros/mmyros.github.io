@@ -10,6 +10,7 @@ sections:
   - file: pandas1
   - file: pandas2
   - file: pandas3
+  - file: dag
 #- file: bayes_examples/bayes_examples
 #  sections:
 #  - file: bayes_examples/multilevel_modeling_neurons
