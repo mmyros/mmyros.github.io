@@ -23,15 +23,16 @@ communicate and to find novel ways to improve psychiatric conditions.
   - Modular, scalable, adaptable
   - Results in a condensed MySQL database (~50TB -> 400Gb)
   - Forked by all other sensor users in the organization
+* Set up a complete pipeline for ingestion -> internal html report publishing 
 * Wrote automated maze software (Python) and accompabying embedded realtime stimulation (C)/recording controller
 * Trained multiple junior personnel in using tools I've developed
 * Introduced git workflow to organization
-* Set up a complete pipeline for ingestion -> internal html report publishing 
 * Unit testing for every repo
 
 ## Goals after NIH
 * Small- to midsize group of enthusiasts to join
 * Expanding my knowledge of data/ML devops 
+* Learn basics of microservices
 * Novel sensors resulting in rich datasets
 * Semi-automated statistical inference/ML
 * Real-time processing with closed-loop potential
