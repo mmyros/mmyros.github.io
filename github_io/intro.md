@@ -5,13 +5,13 @@ I am a postdoctoral fellow  at the National Institutes of Health, laboratory of 
 There, I implant, infect, and stimulate the brains of mice in order to understand how brain regions 
 communicate and to find novel ways to improve psychiatric conditions.
 
-## My interests
-* Spontaneous and perturbed brain activity
-* Organization of robust data analysis pipelines
+## Interests
 * Rich data
+* Organization of robust data analysis pipelines
+* Spontaneous and perturbed brain activity
 
 
-## My work principles
+## Work principles
 * Industry-grade code for academia-grade research
 * Repoducible data analysis workflows without stifling innovation
 * Estimation statistics
@@ -32,7 +32,7 @@ communicate and to find novel ways to improve psychiatric conditions.
 ## Goals after NIH
 * Small- to midsize group of enthusiasts to join
 * Expanding my knowledge of data/ML devops 
-* Learn basics of microservices
+* Learn microservices
 * Novel sensors resulting in rich datasets
 * Semi-automated statistical inference/ML
 * Real-time processing with closed-loop potential
