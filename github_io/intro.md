@@ -21,19 +21,20 @@ communicate and to find novel ways to improve psychiatric conditions.
 * Wrote a core suite of data analysis 
   - Multichannel (up to 64) sensor readings at 30kHz
   - Modular, scalable, adaptable
-  - Resulting in a MySQL database
-  - Forked by all other multichannel sensor users in the organization
-* Wrote automated maze software (Python) and accompabying embedded realtime stimulation (C)
+  - Results in a condensed MySQL database (~50TB -> 400Gb)
+  - Forked by all other sensor users in the organization
+* Wrote automated maze software (Python) and accompabying embedded realtime stimulation (C)/recording controller
 * Trained multiple junior personnel in using tools I've developed
 * Introduced git workflow to organization
 * Set up a complete pipeline for ingestion -> internal html report publishing 
 * Unit testing for every repo
 
 ## Goals after NIH
-* Novel sensors
+* Small- to midsize group of enthusiasts to join
+* Expanding my knowledge of data/ML devops 
+* Novel sensors resulting in rich datasets
+* Semi-automated statistical inference/ML
 * Real-time processing with closed-loop potential
-* Mid- to large group of enthusiasts to join
-* Expanding my knowledge of industrial data devops 
 
 ## My research at NIH 
 ### Inter-region communication
@@ -45,6 +46,6 @@ leads in both brain regions.
 
 ### Applications
 People with psychiatric conditions such as schizophrenia have impaired working memory. I use a working memory task in mice 
-as I perturb the neurons as described above. 
+as I perturb neurons as described above. 
  
 
