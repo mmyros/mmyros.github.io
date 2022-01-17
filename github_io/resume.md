@@ -24,8 +24,11 @@
 - Python, C, Matlab
 - git
 - Linux (including realtime), docker
-- Unit testing
+- Unit testing including mocking, fixtures
+- Comfortable with CLIs (click, argparse)
+- Sockets
 - Gitlab CI, Github actions
+- Integrating tricky SDKs
 - Static HTML from Python code
 - Agile methodology
 ### Bench biology
