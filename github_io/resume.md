@@ -21,13 +21,13 @@
 
 ## Skills
 ### Programming
-- Python, C, Matlab
-- git
-- Linux (including realtime), docker
+- Python, C, <span style="font-variant:small-caps;">matlab</span> 
+- Git
+- Linux (including realtime), Docker
 - Unit testing including mocking, fixtures
 - Comfortable with CLIs (click, argparse)
 - Sockets
-- Gitlab CI, Github actions
+- GitLab CI, GitHub actions
 - Integrating tricky SDKs
 - Static HTML from Python code
 - Agile methodology
