@@ -1,5 +1,5 @@
 # Max Myroshnychenko
-[Google scholar link](https://scholar.google.com/citations?user=hpzb2HkAAAAJ&hl=en)
+[Link to publications](https://scholar.google.com/citations?user=hpzb2HkAAAAJ&hl=en)
 ## Education 
 1. Dnipro National University, Ukraine 
 	- 1 year of Optics in Physics curriculum
@@ -17,7 +17,7 @@
 	- Laboratory of the Institute director, Joshua Gordon
 	- Closed-loop stimulation and recording in T-maze
 	- One published paper, four in progress (two first-author)
-	- Design and deployment of complete codebase for ingesting and retrieval of databases (1-20 Tb)
+	- Design and deployment of complete codebase for ingesting and retrieval of DAG databases (1-20 Tb)
 
 ## Skills
 ### Programming
@@ -37,3 +37,8 @@
 - Personnel training
 - Project management, Kanban
 
+## Coursework highlights
+- Summer school in computational neuroscience, Berkeley University
+- Summer school in computational neuroscience (COSMO), Northwestern University
+- Bayesian statistics with John Kruschke, Indiana University
+- Differential equations in Biology, UNLV and IU
