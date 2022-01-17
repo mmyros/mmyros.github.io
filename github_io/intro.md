@@ -3,18 +3,19 @@ About me
 
 I am a postdoctoral fellow  at the National Institutes of Health, laboratory of NIMH director Joshua Gordon.
 There, I implant, infect, and stimulate the brains of mice in order to understand how brain regions 
-communicate and to find novel ways to improve psychiatric conditions.
+communicate and to find novel ways to improve psychiatric conditions. After setting up a project's surgery 
+and behavioral testing schedule, I work on ingesting and processing data and deploying generated visualization/statistics to an internal website.
 
 ## Interests
 * Rich data
 * Organization of robust data analysis pipelines
 * Spontaneous and perturbed brain activity
 
-
 ## Work principles
 * Industry-grade code for academia-grade research
 * Repoducible data analysis workflows without stifling innovation
-* Estimation statistics
+* Inferential statistics
+* Unit testing and command-line interface for every project
 * Carry every statistical/mental model to its breaking point and learn from how it breaks
 
 ## Organizational accomplishments at NIH
@@ -46,7 +47,6 @@ Perturbation is essential because of these limitations. I perturb distal parts o
 leads in both brain regions.
 
 ### Applications
-People with psychiatric conditions such as schizophrenia have impaired working memory. I use a working memory task in mice 
-as I perturb neurons as described above. 
- 
-
+People with psychiatric conditions such as schizophrenia have impaired working memory. I use a working memory maze task in mice 
+as I perturb neurons as described above. Neuronal activity under such perturbation during the task and outside of the maze may show us how neuronal communication
+is impaired in psychiatric disorders. 
