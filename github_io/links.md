@@ -1,4 +1,4 @@
-# Samples of my work / CV
+# Samples of my work | CV | links
 ## Tools and documentation
 * [Bayes window](https://github.com/mmyros/bayes-window) and [(docs here)](https://mmyros.github.io/bayes-book/index.html) is my Python implementation of a complete Bayesian workflow from regression to visualization and evaluation in one step. Estimate, plot, and evaluate your model in a one-liner!
 * [Some notes on development in python and jupyter](http://dev.to/mmyros), primarily to answer FAQs from students
@@ -18,3 +18,8 @@
 ## CV
 * [Informal resume](https://mmyros.github.io/resume.html) 
 * [formal as pdf](https://github.com/mmyros/mmyros.github.io/blob/master/github_io/extras/CV_Myroshnychenko%2C_Maxym.pdf)
+
+## Social media
+* [Strava](https://www.strava.com/athletes/27873765) 
+* [Twitter](https://twitter.com/mmyros)
+* [dev.to](https://dev.to/mmyros)
