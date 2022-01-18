@@ -13,7 +13,7 @@
 	- Dissertation in optogenetic silencing and in vivo behaving multielectrode single-unit recording on a 12-arm radial maze
 	- Six papers, one first-author
 ## Work experience
-- National Institute of Mental health, 2018 - now
+National Institute of Mental Health, 2018 - now
 	- Laboratory of the Institute director, Joshua Gordon
 	- Closed-loop stimulation and recording in T-maze
 	- One published paper, four in progress (two first-author)
@@ -21,7 +21,7 @@
 
 ## Skills
 ### Programming
-- Python, C, <font size="3"> MATLAB </font>   
+- Python, C, <font size="2"> MATLAB </font>   
 - Git
 - Linux (including realtime), Docker
 - Unit testing including mocking, fixtures
