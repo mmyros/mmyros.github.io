@@ -11,8 +11,8 @@
 * [My old page from grad school](http://mmyros.github.io/mmyros_iu.github.io/) 
 
 ## Summary
-* [Github profile](https://github.com/mmyros)
-* [Gitlab profile](https://gitlab.com/mmyros)
+* [GitHub profile](https://github.com/mmyros)
+* [GitLab profile](https://gitlab.com/mmyros)
 
 ## CV
 * [Informal resume](https://mmyros.github.io/resume.html) 
