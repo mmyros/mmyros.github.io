@@ -21,7 +21,7 @@
 
 ## Skills
 ### Programming
-- Python, C, <span style="font-variant:small-caps;">matlab</span> 
+- Python, C, <font size="3"> MATLAB </font>   
 - Git
 - Linux (including realtime), Docker
 - Unit testing including mocking, fixtures
@@ -39,7 +39,15 @@
 - 3d design and printing
 - Personnel training
 - Project management, Kanban
-
+- US citizen
+### Soft 
+- Self-guided learning and problem solving
+- Ability to evaluate timelines and plan ahead
+- Great at receiving and acting on critical feedback
+- Sensitivity to cultural differences 
+- Demonstrated ability to lead a small team of scientists 
+- Collaboration including teams inside and outside the organization
+- Technical writing for documentation and publications
 ## Coursework highlights
 - Summer school in computational neuroscience, Berkeley University
 - Summer school in computational neuroscience (COSMO), Northwestern University
