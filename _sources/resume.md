@@ -49,7 +49,13 @@ National Institute of Mental Health, 2018 - now
 - Collaboration including teams inside and outside the organization
 - Technical writing for documentation and publications
 ## Coursework highlights
+- Graduate-level Electronics design (Physics department)
+- Differential equations in biology (Biology, Physics, and Cognitive science departments)
+- Bayesian statistics with Kruschke (IU) and McElreath (online)
 - Summer school in computational neuroscience, Berkeley University
 - Summer school in computational neuroscience (COSMO), Northwestern University
-- Bayesian statistics with John Kruschke, Indiana University
-- Differential equations in Biology, UNLV and IU
+## Teaching
+- Teaching assistant (TA), Neuroscience lab
+- Training personnel in laboratory procedures and coding best practices (NIH)
+- Neuromatch academy lead TA for EST timezone (international online computational neuroscience school)
+
