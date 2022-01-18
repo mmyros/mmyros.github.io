@@ -35,3 +35,9 @@
 - 3d design and printing
 - Personnel training
 - Project management, Kanban
+
+## Coursework highlights
+- Graduate-level Electronics design (Physics department)
+- Differential equations in biology
+- Bayesian statistics with Kruschke and McElreath
+- Neuromatch academy lead TA for EST timezone (international online computational neuroscience school)
