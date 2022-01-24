@@ -1,9 +1,9 @@
-# Things I wish I knew before starting a DAG database
-## Why DAG
+# Things I wish I knew before starting a relational database
+## Why relational
 - Checks on data inegrity means you can pass your project to the maintainers
 - Lower barrier to try out ideas on old data 
 
-## Tips to stay sane
+## Staying sane
 - Separate phases of analysis: ingestion/condensing, chunking, computation, organization, plotting
 - Write two schemas at a time, one you're thinking about now and its child
 - First, populate a few recording sessions, not all datasets
