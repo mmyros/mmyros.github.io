@@ -25,16 +25,22 @@ National Institute of Mental Health, 2018 - now
 
 ## Skills
 ### Programming
-- Python, C, <font size="2"> MATLAB </font>   
+- Python, <font size="2"> MATLAB </font>, some C, some R  
+- PEP 8 code style
 - Git
-- Linux (including realtime), Docker, emacs, zsh, package management
 - Unit testing including mocking, fixtures
+### Devops
+- Linux (including realtime), Docker, emacs, zsh, package management
 - Comfortable with CLIs (click, argparse)
 - Sockets
 - GitLab CI, GitHub actions, Grafana 
 - Integrating tricky SDKs
 - Static HTML from Python code
-- Agile methodology
+### Computing
+- Python ML stack (scikit-learn, statsmodels, scipy, numpy, some jax, some TensorFlow)
+- Markov chain Monte Carlo with GPU acceleration (numpyro, pymc)
+- Parallelization 
+- Relational databases with direct acyclic graph
 ### Bench biology
 - Mouse and rat neurosurgery
 - Immunohistochemistry
@@ -42,7 +48,7 @@ National Institute of Mental Health, 2018 - now
 ### General 
 - 3d design and printing
 - Personnel training
-- Project management, Kanban
+- Project management, Agile, Kanban
 - US citizen
 ### Soft 
 - Self-guided learning and problem solving
