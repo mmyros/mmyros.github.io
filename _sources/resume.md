@@ -1,5 +1,9 @@
 # Max Myroshnychenko
 [Link to publications](https://scholar.google.com/citations?user=hpzb2HkAAAAJ&hl=en)
+## Testimonials
+> Max is a great to work with Data science wizard, who has the gift to transforms complex data and problems into meaningful and impactful insights. I wish I could incentive him to move to Europe
+> 
+> _Johannes Passecker, Assistant professor, Medical University Innsbruck_
 ## Education 
 1. Dnipro National University, Ukraine 
 	- 1 year of Optics in Physics curriculum
@@ -14,20 +18,20 @@
 	- Six papers, one first-author
 ## Work experience
 National Institute of Mental Health, 2018 - now
-	- Laboratory of the Institute director, Joshua Gordon
-	- Closed-loop stimulation and recording in T-maze
-	- One published paper, four in progress (two first-author)
-	- Design and deployment of complete codebase for ingesting and retrieval of DAG databases (1-20 Tb)
+- Laboratory of the Institute director, Joshua Gordon
+- Closed-loop stimulation and recording in T-maze
+- One published paper, four in progress (two first-author)
+- Design and deployment of complete codebase for ingesting and retrieval of relational databases (1-20 Tb)
 
 ## Skills
 ### Programming
 - Python, C, <font size="2"> MATLAB </font>   
 - Git
-- Linux (including realtime), Docker
+- Linux (including realtime), Docker, emacs, zsh, package management
 - Unit testing including mocking, fixtures
 - Comfortable with CLIs (click, argparse)
 - Sockets
-- GitLab CI, GitHub actions
+- GitLab CI, GitHub actions, Grafana 
 - Integrating tricky SDKs
 - Static HTML from Python code
 - Agile methodology
@@ -43,7 +47,7 @@ National Institute of Mental Health, 2018 - now
 ### Soft 
 - Self-guided learning and problem solving
 - Ability to evaluate timelines and plan ahead
-- Great at receiving and acting on critical feedback
+- Receiving and acting on critical feedback
 - Sensitivity to cultural differences 
 - Demonstrated ability to lead a small team of scientists 
 - Collaboration including teams inside and outside the organization
@@ -52,7 +56,7 @@ National Institute of Mental Health, 2018 - now
 - Graduate-level Electronics design (Physics department)
 - Differential equations in biology (Biology, Physics, and Cognitive science departments)
 - Bayesian statistics with Kruschke (IU) and McElreath (online)
-- Summer school in computational neuroscience, Berkeley University
+- Summer school in computational neuroscience (CRCNS), Berkeley University
 - Summer school in computational neuroscience (COSMO), Northwestern University
 ## Teaching
 - Teaching assistant (TA), Neuroscience lab
