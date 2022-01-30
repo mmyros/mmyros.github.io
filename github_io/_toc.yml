@@ -3,6 +3,7 @@ root: intro
 sections:
 - file: links
 - file: open_projects
+- file: resume
 - file: sci_comp_notes
   sections:
   - file: best_tool
@@ -11,6 +12,7 @@ sections:
   - file: pandas2
   - file: pandas3
   - file: dag
+- file: hobbies  
 #- file: bayes_examples/bayes_examples
 #  sections:
 #  - file: bayes_examples/multilevel_modeling_neurons

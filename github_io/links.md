@@ -22,3 +22,4 @@
 * [Strava](https://www.strava.com/athletes/27873765) 
 * [Twitter](https://twitter.com/mmyros)
 * [dev.to](https://dev.to/mmyros)
+* [Linkdin](https://www.linkedin.com/in/maxym-myroshnychenko-b79b2b51/)

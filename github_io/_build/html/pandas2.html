@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pandas tools you didn’t know you needed 2: Groupby &#8212; Maxym &#34;Max&#34; Myroshnychenko</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Pandas tools you didn’t know you needed 3: groupby+from_records" href="pandas3.html" />
+    <link rel="prev" title="Pandas tools you didn’t know you needed 1: Apply" href="pandas1.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/1602686224951.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Maxym "Max" Myroshnychenko</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   About me
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="links.html">
+   Samples of my work | CV | links
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="open_projects.html">
+   My open-source projects on github
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="sci_comp_notes.html">
+   Scientific computing notes
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="best_tool.html">
+     Best tool for the job
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="org_jup.html">
+     Organizing jupyter notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pandas1.html">
+     Pandas tools you didn’t know you needed 1: Apply
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Pandas tools you didn’t know you needed 2: Groupby
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pandas3.html">
+     Pandas tools you didn’t know you needed 3: groupby+from_records
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dag.html">
+     Things I wish I knew before starting a relational database
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hobbies.html">
+   Hobbies
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/pandas2.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="pandas-tools-you-didnt-know-you-needed-2-groupby">
+<h1>Pandas tools you didn’t know you needed 2: Groupby<a class="headerlink" href="#pandas-tools-you-didnt-know-you-needed-2-groupby" title="Permalink to this headline">¶</a></h1>
+<p>Often you need to do something to groups of rows of a dataframe that match some condition, for instance a certain mouse or brain region. The most intuitive solution is to use a for loop.</p>
+<p>For instance, let’s start with this dataframe:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:right head"><p></p></th>
+<th class="text-align:left head"><p>experiment</p></th>
+<th class="text-align:left head"><p>brain_region</p></th>
+<th class="text-align:right head"><p>neuron</p></th>
+<th class="text-align:right head"><p>Mean ISI</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:right"><p>0</p></td>
+<td class="text-align:left"><p>bucket_1_m026_1568757659_</p></td>
+<td class="text-align:left"><p>pfc</p></td>
+<td class="text-align:right"><p>0</p></td>
+<td class="text-align:right"><p>3.08281</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>1</p></td>
+<td class="text-align:left"><p>bucket_1_m026_1568757659_</p></td>
+<td class="text-align:left"><p>pfc</p></td>
+<td class="text-align:right"><p>1</p></td>
+<td class="text-align:right"><p>8.37044</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>2</p></td>
+<td class="text-align:left"><p>bucket_1_m026_1568757659_</p></td>
+<td class="text-align:left"><p>pfc</p></td>
+<td class="text-align:right"><p>2</p></td>
+<td class="text-align:right"><p>38.5265</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>3</p></td>
+<td class="text-align:left"><p>bucket_1_m026_1568757659_</p></td>
+<td class="text-align:left"><p>pfc</p></td>
+<td class="text-align:right"><p>3</p></td>
+<td class="text-align:right"><p>31.795</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>4</p></td>
+<td class="text-align:left"><p>bucket_1_m026_1568757659_</p></td>
+<td class="text-align:left"><p>pfc</p></td>
+<td class="text-align:right"><p>4</p></td>
+<td class="text-align:right"><p>3.43186</p></td>
+</tr>
+</tbody>
+</table>
+<p>We can loop over experiments, brain regions, and neuron like so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">log_mean_isi</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">neuron</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;neuron&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">brain_region</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;brain_region&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">experiment</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;experiment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
+            <span class="n">sub_df</span><span class="o">=</span><span class="n">df</span><span class="p">[</span>
+                <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;experiment&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">experiment</span><span class="p">)</span> <span class="o">&amp;</span> 
+                <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;brain_region&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">brain_region</span><span class="p">)</span> <span class="o">&amp;</span> 
+                <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;neuron&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">neuron</span><span class="p">)</span> 
+            <span class="p">]</span>
+            <span class="n">log_mean_isi</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">sub_df</span><span class="p">[</span><span class="s1">&#39;Mean ISI&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">log_mean_isi</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="mf">1.12584188</span>  <span class="mf">2.19215951</span> <span class="o">-</span><span class="mf">1.98074317</span> <span class="o">-</span><span class="mf">0.25722232</span>  <span class="mf">2.1247061</span>   <span class="mf">0.0063244</span> <span class="mf">0.92415014</span> <span class="o">-</span><span class="mf">1.93038317</span>  <span class="mf">3.6513468</span>   <span class="mf">2.28266164</span>  <span class="mf">1.39365976</span> <span class="o">-</span><span class="mf">3.23681353</span>  <span class="mf">3.459308</span>    <span class="mf">1.48402753</span> <span class="o">-</span><span class="mf">0.65003803</span>  <span class="mf">1.4140086</span>   <span class="mf">1.23310109</span> <span class="o">-</span><span class="mf">0.8740564</span>  <span class="mf">1.29957486</span> <span class="o">-</span><span class="mf">0.60594385</span> <span class="o">-</span><span class="mf">0.61921541</span>  <span class="mf">4.51176028</span>  <span class="mf">0.5622578</span>   <span class="mf">3.48668087</span> <span class="o">-</span><span class="mf">1.57394565</span> <span class="o">-</span><span class="mf">1.15482997</span>  <span class="mf">3.62078013</span> <span class="o">-</span><span class="mf">0.64878302</span> <span class="o">-</span><span class="mf">2.08398518</span>  <span class="mf">0.28354575</span> <span class="o">-</span><span class="mf">0.92326873</span> <span class="o">-</span><span class="mf">2.23523802</span> <span class="o">-</span><span class="mf">1.15944804</span> <span class="o">-</span><span class="mf">1.16315081</span>  <span class="mf">1.29454247</span> <span class="o">-</span><span class="mf">0.89566237</span>  <span class="mf">0.72300259</span> <span class="o">-</span><span class="mf">1.38527266</span>  <span class="mf">1.3694298</span>   <span class="mf">2.95919545</span>  <span class="mf">3.07555102</span> <span class="o">-</span><span class="mf">1.38317331</span>  <span class="mf">2.3510588</span>  <span class="o">-</span><span class="mf">1.68488011</span>  <span class="mf">2.15864159</span>  <span class="mf">2.92067342</span>  <span class="mf">0.20249933</span>  <span class="mf">1.76685816</span> <span class="o">-</span><span class="mf">1.14606501</span> <span class="o">-</span><span class="mf">2.54545905</span>  <span class="mf">2.17651238</span>  <span class="mf">2.49333615</span> <span class="o">-</span><span class="mf">1.08762839</span> <span class="o">-</span><span class="mf">1.10690211</span>  <span class="mf">1.79675315</span>  <span class="mf">1.08438564</span> <span class="o">-</span><span class="mf">1.61687289</span>  <span class="mf">3.64009558</span>  <span class="mf">2.50376142</span>  <span class="mf">3.53577889</span> <span class="o">-</span><span class="mf">2.31447026</span> <span class="o">-</span><span class="mf">0.9560716</span>  <span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>However, nested for loops are evil for many reasons. Let’s use the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> command:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">log_mean_isi</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">sub_df</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;neuron&#39;</span><span class="p">,</span> <span class="s1">&#39;brain_region&#39;</span><span class="p">,</span> <span class="s1">&#39;experiment&#39;</span><span class="p">]):</span>
+    <span class="n">log_mean_isi</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">sub_df</span><span class="p">[</span><span class="s1">&#39;Mean ISI&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">log_mean_isi</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>or even in one line:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mean_isi_list</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">sub_df</span><span class="p">[</span><span class="s1">&#39;Mean ISI&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">values</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">sub_df</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;neuron&#39;</span><span class="p">,</span> <span class="s1">&#39;brain_region&#39;</span><span class="p">,</span> <span class="s1">&#39;experiment&#39;</span><span class="p">])]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">mean_isi_list</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Much more readable and efficient! Furthermore, the <code class="docutils literal notranslate"><span class="pre">index</span></code> part can be used for reconstructing the modified dataframe. I might make a post on that in the future.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="pandas1.html" title="previous page">Pandas tools you didn’t know you needed 1: Apply</a>
+    <a class='right-next' id="next-link" href="pandas3.html" title="next page">Pandas tools you didn’t know you needed 3: groupby+from_records</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Maxym Myroshnychenko<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
