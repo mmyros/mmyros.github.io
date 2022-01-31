@@ -1,7 +1,7 @@
 # Resume, Max Myroshnychenko
 [Link to publications](https://scholar.google.com/citations?user=hpzb2HkAAAAJ&hl=en)
 ## Testimonials
-> Max is a great to work with Data science wizard, who has the gift to transforms complex data and problems into meaningful and impactful insights. I wish I could incentive him to move to Europe
+> After working alongside Max for 3 years at NIH, I must say he is a great to work with Data science wizard, who has the gift to transforms complex data and problems into meaningful and impactful insights. I wish I could incentive him to move to Europe.
 > 
 > _Johannes Passecker, Assistant professor, Medical University Innsbruck_
 ## Education 
