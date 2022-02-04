@@ -10,6 +10,7 @@ and behavioral testing schedule, I work on ingesting and processing data and dep
 * Rich data
 * Organization of robust data analysis pipelines
 * Spontaneous and perturbed brain activity
+* Focus on estimation rather than prediction
 
 ## Work principles
 * Industry-grade code for academia-grade research
