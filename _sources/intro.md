@@ -37,7 +37,6 @@ and behavioral testing schedule, I work on ingesting and processing data and dep
 * Novel sensors resulting in rich datasets
 * Semi-automated statistical inference/ML
 * Real-time processing with potential for realtime manipulation
-* Learn microservices
 
 ## My research at NIH 
 ### Inter-region communication
