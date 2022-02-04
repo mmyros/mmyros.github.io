@@ -31,13 +31,13 @@ and behavioral testing schedule, I work on ingesting and processing data and dep
 * Introduced git workflow to organization
 * Unit testing for every repo
 
-## Goals after NIH
+## Goals for next career step
 * Small- to midsize group of enthusiasts to join
-* Expanding my knowledge of data/ML devops 
-* Learn microservices
+* Team that includes experts in stats/ML and devops 
 * Novel sensors resulting in rich datasets
 * Semi-automated statistical inference/ML
 * Real-time processing with potential for realtime manipulation
+* Learn microservices
 
 ## My research at NIH 
 ### Inter-region communication
