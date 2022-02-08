@@ -2,6 +2,8 @@ format: jb-article
 root: intro
 sections:
 - file: links
+  sections: 
+  - file: bayes_examples/neurons_example
 - file: open_projects
 - file: resume
 - file: sci_comp_notes
