@@ -120,6 +120,19 @@ Css: div.author{white-space: nowrap;}
 Css: .quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
 Css: .abstract p {margin-left:5%; margin-right:5%;}
 Css: div.abstract {width:100%;}
+Css: .equation td{text-align:center; }
+Css: .equation-star td{text-align:center; }
+Css: table.equation-star { width:100%; }
+Css: table.equation { width:100%; }
+Css: table.align, table.alignat, table.xalignat, table.xxalignat, table.flalign {width:95%; margin-left:5%; white-space: nowrap;}
+Css: table.align-star, table.alignat-star, table.xalignat-star, table.flalign-star {margin-left:auto; margin-right:auto; white-space: nowrap;}
+Css: td.align-label { width:5%; text-align:center; }
+Css: td.align-odd { text-align:right; padding-right:0.3em;}
+Css: td.align-even { text-align:left; padding-right:0.6em;}
+Css: table.multline, table.multline-star {width:100%;}
+Css: td.gather {text-align:center; }
+Css: table.gather {width:100%;}
+Css: div.gather-star {text-align:center;}
 Css: dt.enumerate{float:left; clear:left; margin-right:0.2em; margin-left:2em;}
 Css: dt.compactenum{float:left; clear:left; margin-right:0.2em; margin-left:2em;}
 --- characters ---
