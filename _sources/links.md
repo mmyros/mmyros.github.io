@@ -16,8 +16,8 @@
 
 ## CV
 * [Informal resume](https://mmyros.github.io/resume.html) 
-* [Formal as html](https://mmyros.github.io/cv/CV_Myroshnychenko,_Maxym.html)
 * [Formal as pdf](https://mmyros.github.io/cv/CV_Myroshnychenko,_Maxym.pdf)
+* [Formal as html (experimental)](https://mmyros.github.io/cv/CV_Myroshnychenko,_Maxym.html)
 <!-- * [Formal as pdf](https://github.com/mmyros/mmyros.github.io/blob/master/github_io/extras/CV_Myroshnychenko%2C_Maxym.pdf) -->
 
 ## Social media
