@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Bayesian Methods for Multilevel Modeling of Neurons &#8212; Maxym &#34;Max&#34; Myroshnychenko</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -62,7 +61,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +84,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -91,14 +105,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    About me
+                </a>
+            </li>
+        </ul>
         <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   About me
-  </a>
- </li>
-</ul>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../links.html">
    Samples of my work | CV | links
@@ -111,7 +126,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="neurons_example.html">
-     Example data analysis workflow
+     Bayesian multilevel A/B testing
     </a>
    </li>
   </ul>
@@ -176,87 +191,160 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/bayes_examples/multilevel_modeling_neurons.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/mmyros/github_io/master?urlpath=tree/bayes_examples/multilevel_modeling_neurons.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
         </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/mmyros/github_io/master?urlpath=tree/bayes_examples/multilevel_modeling_neurons.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/bayes_examples/multilevel_modeling_neurons.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-organization">
    Data organization
@@ -319,12 +407,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Bayesian Methods for Multilevel Modeling of Neurons</h1>
@@ -403,11 +490,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="bayesian-methods-for-multilevel-modeling-of-neurons">
-<h1>Bayesian Methods for Multilevel Modeling of Neurons<a class="headerlink" href="#bayesian-methods-for-multilevel-modeling-of-neurons" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="bayesian-methods-for-multilevel-modeling-of-neurons">
+<h1>Bayesian Methods for Multilevel Modeling of Neurons<a class="headerlink" href="#bayesian-methods-for-multilevel-modeling-of-neurons" title="Permalink to this headline">#</a></h1>
 <p>This is a slight reworking of the radon example from pymc3 <a class="reference external" href="https://docs.pymc.io/notebooks/multilevel_modeling.html">https://docs.pymc.io/notebooks/multilevel_modeling.html</a></p>
 <p>Why this notebook? It’s a common departure point to consider multilevel models in neuroscience.</p>
 <p>Hierarchical or multilevel modeling is a generalization of regression modeling. <em>Multilevel models</em> are regression models in which the constituent model parameters are given <strong>probability models</strong>. This implies that model parameters are allowed to <strong>vary by group</strong>. Observational units are often naturally <strong>clustered</strong>. Clustering induces dependence between observations, despite random sampling of clusters and random sampling within clusters.</p>
@@ -422,8 +510,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The hierarchy in this example is neurons within mouse.</p>
 <p>Note that we are not considering the variability that comes from house identity, which would mean neuron identity in our neuroscience language.
 This means that each neuron/house has one measurement. The estimation of firing rate of a neuron is thus a separate topic.</p>
-<div class="section" id="data-organization">
-<h2>Data organization<a class="headerlink" href="#data-organization" title="Permalink to this headline">¶</a></h2>
+<section id="data-organization">
+<h2>Data organization<a class="headerlink" href="#data-organization" title="Permalink to this headline">#</a></h2>
 <p>First, we import the data from a local file, and extract data.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -755,9 +843,9 @@ Index([&#39;stfips&#39;, &#39;ctfips&#39;, &#39;st&#39;, &#39;cty&#39;, &#39;lon
 <img alt="../_images/multilevel_modeling_neurons_20_0.png" src="../_images/multilevel_modeling_neurons_20_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="conventional-approaches">
-<h2>Conventional approaches<a class="headerlink" href="#conventional-approaches" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="conventional-approaches">
+<h2>Conventional approaches<a class="headerlink" href="#conventional-approaches" title="Permalink to this headline">#</a></h2>
 <p>The two conventional alternatives to modeling firing rate exposure represent the two extremes of the bias-variance tradeoff:</p>
 <p><em><strong>Complete pooling</strong></em>:</p>
 <p>Treat all mice the same, and estimate a single firing rate level.</p>
@@ -1386,9 +1474,9 @@ Index([&#39;stfips&#39;, &#39;ctfips&#39;, &#39;st&#39;, &#39;cty&#39;, &#39;lon
 </ul>
 <p>This issue is acute for small sample sizes, as seen above: in mice where we have few no_stim measurements, if firingrate levels are higher for those data points than for stim ones (Aitkin, Koochiching, Ramsey), the model will estimate that firingrate levels are higher in no_stims than stims for these mice. But we shouldn’t trust this conclusion, because both scientific knowledge and the situation in other mice tell us that it is usually the reverse (stim firingrate &gt; no_stim firingrate). So unless we have a lot of observations telling us otherwise for a given mouse, we should be skeptical and shrink our mouse-estimates to the state-estimates – in other words, we should balance between cluster-level and population-level information, and the amount of shrinkage will depend on how extreme and how numerous the data in each cluster are.</p>
 <p>But how do we do that? Well, ladies and gentlemen, let me introduce you to… hierarchical models!</p>
-</div>
-<div class="section" id="multilevel-and-hierarchical-models">
-<h2>Multilevel and hierarchical models<a class="headerlink" href="#multilevel-and-hierarchical-models" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="multilevel-and-hierarchical-models">
+<h2>Multilevel and hierarchical models<a class="headerlink" href="#multilevel-and-hierarchical-models" title="Permalink to this headline">#</a></h2>
 <p>When we pool our data, we imply that they are sampled from the same model. This ignores any variation among sampling units (other than sampling variance) – we assume that mice are all the same:</p>
 <p><img alt="pooled" src="http://f.cl.ly/items/0R1W063h1h0W2M2C0S3M/Screen%20Shot%202013-10-10%20at%208.22.21%20AM.png" /></p>
 <p>When we analyze data unpooled, we imply that they are sampled independently from separate models. At the opposite extreme from the pooled case, this approach claims that differences between sampling units are too large to combine them – we assume that mice have no similarity whatsoever:</p>
@@ -1396,9 +1484,9 @@ Index([&#39;stfips&#39;, &#39;ctfips&#39;, &#39;st&#39;, &#39;cty&#39;, &#39;lon
 <p>In a hierarchical model, parameters are viewed as a sample from a population distribution of parameters. Thus, we view them as being neither entirely different or exactly the same. This is <em><strong>partial pooling</strong></em>:</p>
 <p><img alt="hierarchical" src="http://f.cl.ly/items/1B3U223i002y3V2W3r0W/Screen%20Shot%202013-10-10%20at%208.25.05%20AM.png" /></p>
 <p>We can use PyMC to easily specify multilevel models, and fit them using Markov chain Monte Carlo.</p>
-</div>
-<div class="section" id="partial-pooling-model">
-<h2>Partial pooling model<a class="headerlink" href="#partial-pooling-model" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="partial-pooling-model">
+<h2>Partial pooling model<a class="headerlink" href="#partial-pooling-model" title="Permalink to this headline">#</a></h2>
 <p>The simplest partial pooling model for the neuron firingrate dataset is one which simply estimates firingrate levels, without any predictors at any level. A partial pooling model represents a compromise between the pooled and unpooled extremes, approximately a weighted average (based on sample size) of the unpooled mouse estimates and the pooled estimates.</p>
 <div class="math notranslate nohighlight">
 \[\hat{\alpha} \approx \frac{(n_j/\sigma_y^2)\bar{y}_j + (1/\sigma_{\alpha}^2)\bar{y}}{(n_j/\sigma_y^2) + (1/\sigma_{\alpha}^2)}\]</div>
@@ -1581,9 +1669,9 @@ Index([&#39;stfips&#39;, &#39;ctfips&#39;, &#39;st&#39;, &#39;cty&#39;, &#39;lon
 </div>
 <p>Notice the difference between the unpooled and partially-pooled estimates, particularly at smaller sample sizes: As expected, the former are both more extreme and more imprecise. Indeed, in the partially-pooled model, estimates in small-sample-size mice are informed by the population parameters – hence more precise estimates. Moreover, the smaller the sample size, the more regression towards the overall mean (the dashed gray line) – hence less extreme estimates. In other words, the model is skeptical of extreme deviations from the population mean in mice where data is sparse.</p>
 <p>Now let’s try to integrate the <code class="docutils literal notranslate"><span class="pre">no_stim</span></code> predictor! To show you an example with a slope we’re gonna take the indicator variable road, but we could stay with the index variable approach that we used for the no-pooling model. Then we would have one intercept for each category – stim and no_stim.</p>
-</div>
-<div class="section" id="varying-intercept-model">
-<h2>Varying intercept model<a class="headerlink" href="#varying-intercept-model" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="varying-intercept-model">
+<h2>Varying intercept model<a class="headerlink" href="#varying-intercept-model" title="Permalink to this headline">#</a></h2>
 <p>As above, this model allows intercepts to vary across mouse, according to a random effect. We just add a fixed slope for the predictor (i.e all mice will have the same slope):</p>
 <div class="math notranslate nohighlight">
 \[y_i = \alpha_{j[i]} + \beta x_{i} + \epsilon_i\]</div>
@@ -1870,9 +1958,9 @@ Index([&#39;stfips&#39;, &#39;ctfips&#39;, &#39;st&#39;, &#39;cty&#39;, &#39;lon
 </div>
 <p>Here we clearly see the notion that partial-pooling is a compromise between no pooling and complete pooling, as its mean estimates are usually between the other models’ estimates. And interestingly, the bigger (smaller) the sample size in a given mouse, the closer the partial-pooling estimates are to the no-pooling (complete-pooling) estimates.</p>
 <p>We see however that mice vary by more than just their baseline rates: the effect of no_stim seems to be different from one mouse to another. It would be great if our model could take that into account, wouldn’t it? Well to do that, we need to allow the slope to vary by mouse – not only the intercept – and here is how you can do it with PyMC3.</p>
-</div>
-<div class="section" id="varying-intercept-and-slope-model">
-<h2>Varying intercept and slope model<a class="headerlink" href="#varying-intercept-and-slope-model" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="varying-intercept-and-slope-model">
+<h2>Varying intercept and slope model<a class="headerlink" href="#varying-intercept-and-slope-model" title="Permalink to this headline">#</a></h2>
 <p>The most general model allows both the intercept and slope to vary by mouse:</p>
 <div class="math notranslate nohighlight">
 \[y_i = \alpha_{j[i]} + \beta_{j[i]} x_{i} + \epsilon_i\]</div>
@@ -1905,9 +1993,9 @@ Index([&#39;stfips&#39;, &#39;ctfips&#39;, &#39;st&#39;, &#39;cty&#39;, &#39;lon
 <div class="cell_output docutils container">
 <img alt="../_images/multilevel_modeling_neurons_70_0.svg" src="../_images/multilevel_modeling_neurons_70_0.svg" /></div>
 </div>
-</div>
-<div class="section" id="reparametrization">
-<h2>Reparametrization<a class="headerlink" href="#reparametrization" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="reparametrization">
+<h2>Reparametrization<a class="headerlink" href="#reparametrization" title="Permalink to this headline">#</a></h2>
 <p>Now, if you run this model, you’ll get divergences (some or a lot, depending on your random seed). We don’t want that – divergences are your Voldemort to your models. In these situations it’s usually wise to reparametrize your model using the “non-centered parametrization” (I know, it’s really not a great term, but please indulge me). We’re not gonna explain it here, but there are <a class="reference external" href="https://twiecki.io/blog/2017/02/08/bayesian-hierchical-non-centered/">great resources out there</a>. In a nutshell, it’s an algebraic trick that helps computation but leaves the model unchanged – the model is statistically equivalent to the “centered” version. In that case, here is what it would look like:</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -2271,9 +2359,9 @@ Index([&#39;stfips&#39;, &#39;ctfips&#39;, &#39;st&#39;, &#39;cty&#39;, &#39;lon
 <p>The negative correlation is somewhat clear here: when the intercept increases, the slope decreases. So we understand why the model put most of the posterior weight into negative territory for <code class="docutils literal notranslate"><span class="pre">Rho</span></code>. Nevertheless, the negativity isn’t <em>that</em> obvious, which is why the model gives a non-trivial posterior probability to the possibility that <code class="docutils literal notranslate"><span class="pre">Rho</span></code> could in fact be zero or positive.</p>
 <p>Interestingly, the differences between both models occur at extreme slope and intercept values. This is because the second model used the slightly negative correlation between intercepts and slopes to adjust their estimates: when intercepts are <em>larger</em> (smaller) than average, the model pushes <em>down</em> (up) the associated slopes.</p>
 <p>Globally, there is a lot of agreement here: modeling the correlation didn’t change inference that much. We already saw that firingrate levels tended to be lower in no_stims than stims, and when we checked the posterior distributions of the average effects (<code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>) and standard deviations, we noticed that they were almost identical. But on average the model with covariation will be more accurate – because it squeezes additional information from the data, to shrink estimates in both dimensions.</p>
-</div>
-<div class="section" id="adding-group-level-predictors">
-<h2>Adding group-level predictors<a class="headerlink" href="#adding-group-level-predictors" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="adding-group-level-predictors">
+<h2>Adding group-level predictors<a class="headerlink" href="#adding-group-level-predictors" title="Permalink to this headline">#</a></h2>
 <p>A primary strength of multilevel models is the ability to handle predictors on multiple levels simultaneously. If we consider the varying-intercepts model above:</p>
 <div class="math notranslate nohighlight">
 \[y_i = \alpha_{j[i]} + \beta x_{i} + \epsilon_i\]</div>
@@ -2486,9 +2574,9 @@ Index([&#39;stfips&#39;, &#39;ctfips&#39;, &#39;st&#39;, &#39;cty&#39;, &#39;lon
 </div>
 </div>
 <p>We see that the compatibility intervals are narrower for the model including the mouse-level covariate. This is expected, as the effect of a covariate is to reduce the variation in the outcome variable – provided the covariate is of predictive value. More importantly, with this model we were able to squeeze even more information out of the data.</p>
-</div>
-<div class="section" id="correlations-among-levels">
-<h2>Correlations among levels<a class="headerlink" href="#correlations-among-levels" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="correlations-among-levels">
+<h2>Correlations among levels<a class="headerlink" href="#correlations-among-levels" title="Permalink to this headline">#</a></h2>
 <p>In some instances, having predictors at multiple levels can reveal correlation between individual-level variables and group residuals. We can account for this by including the average of the individual predictors as a covariate in the model for the group intercept:</p>
 <div class="math notranslate nohighlight">
 \[\alpha_j = \gamma_0 + \gamma_1 u_j + \gamma_2 \bar{x} + \zeta_j\]</div>
@@ -2651,9 +2739,9 @@ Index([&#39;stfips&#39;, &#39;ctfips&#39;, &#39;st&#39;, &#39;cty&#39;, &#39;lon
 </div>
 <p>So we might infer from this that mice with higher proportions of neurons without stims tend to have higher baseline levels of firingrate. This seems to be new, as up to this point we saw that <code class="docutils literal notranslate"><span class="pre">no_stim</span></code> was <em>negatively</em> associated with firingrate levels. But remember this was at the neuron-level: firingrate tends to be higher in neurons with stims. But at the mouse-level it seems that the less stims on average in the mouse, the more firingrate. So it’s not that contradictory. What’s more, the estimate for <span class="math notranslate nohighlight">\(\gamma_2\)</span> is quite uncertain and overlaps with zero, so it’s possible that the relationship is not that strong. And finally, let’s note that <span class="math notranslate nohighlight">\(\gamma_2\)</span> estimates something else than velocity’s effect, as this is already taken into account by <span class="math notranslate nohighlight">\(\gamma_1\)</span> – it answers the question “once we know velocity level in the mouse, is there any value in learning about the proportion of neurons without stims?”.</p>
 <p>All of this is to say that we shouldn’t interpret this causally: there is no credible mecanism by which a stim (or absence thereof) <em>causes</em> firingrate emissions. More probably, our causal graph is missing something: a confounding variable, one that influences both stim construction and firingrate levels, is lurking somewhere in the dark… Perhaps is it the type of soil, which might influence what type of structures are built <em>and</em> the level of firingrate? Maybe adding this to our model would help with causal inference.</p>
-</div>
-<div class="section" id="prediction">
-<h2>Prediction<a class="headerlink" href="#prediction" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="prediction">
+<h2>Prediction<a class="headerlink" href="#prediction" title="Permalink to this headline">#</a></h2>
 <p>Gelman (2006) used cross-validation tests to check the prediction error of the unpooled, pooled, and partially-pooled models</p>
 <p><strong>root mean squared cross-validation prediction errors</strong>:</p>
 <ul class="simple">
@@ -2724,18 +2812,18 @@ Index([&#39;stfips&#39;, &#39;ctfips&#39;, &#39;st&#39;, &#39;cty&#39;, &#39;lon
 <img alt="../_images/multilevel_modeling_neurons_109_2.png" src="../_images/multilevel_modeling_neurons_109_2.png" />
 </div>
 </div>
-</div>
-<div class="section" id="benefits-of-multilevel-models">
-<h2>Benefits of Multilevel Models<a class="headerlink" href="#benefits-of-multilevel-models" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="benefits-of-multilevel-models">
+<h2>Benefits of Multilevel Models<a class="headerlink" href="#benefits-of-multilevel-models" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Accounting for natural hierarchical structure of observational data.</p></li>
 <li><p>Estimation of coefficients for (under-represented) groups.</p></li>
 <li><p>Incorporating individual- and group-level information when estimating group-level coefficients.</p></li>
 <li><p>Allowing for variation among individual-level coefficients across groups.</p></li>
 </ul>
-</div>
-<div class="section" id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Gelman, A., &amp; Hill, J. (2006), <em>Data Analysis Using Regression and Multilevel/Hierarchical Models (1st ed.)</em>, Cambridge University Press.</p></li>
 <li><p>Gelman, A. (2006), <em>Multilevel (Hierarchical) modeling: what it can and cannot do</em>, Technometrics, 48(3), 432–435.</p></li>
@@ -2748,8 +2836,8 @@ Index([&#39;stfips&#39;, &#39;ctfips&#39;, &#39;st&#39;, &#39;cty&#39;, &#39;lon
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2773,28 +2861,34 @@ Index([&#39;stfips&#39;, &#39;ctfips&#39;, &#39;st&#39;, &#39;cty&#39;, &#39;lon
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
 <div class='prev-next-area'>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Maxym Myroshnychenko<br/>
+  
+      &copy; Copyright 2020.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Maxym Myroshnychenko<br/>
-    
-        &copy; Copyright 2020.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
