@@ -84,3 +84,8 @@ National Institute of Mental Health, 2018 - now
 - Training personnel in laboratory procedures and coding best practices (NIH)
 - Neuromatch academy lead TA for EST timezone (international online computational neuroscience school)
 
+
+## Formal CV
+* [pdf](https://mmyros.github.io/cv/CV_Myroshnychenko,_Maxym.pdf)
+<!-- * [Formal as html (experimental)](https://mmyros.github.io/cv/CV_Myroshnychenko,_Maxym.html) -->
+<!-- * [Formal as pdf](https://github.com/mmyros/mmyros.github.io/blob/master/github_io/extras/CV_Myroshnychenko%2C_Maxym.pdf) -->
