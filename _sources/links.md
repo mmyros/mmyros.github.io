@@ -1,4 +1,4 @@
-# Samples of my work | CV | links
+# Work samples, links
 
 ## HTML data analysis reports
 * [My students' visualizations of an open-source dataset](https://mmyros.gitlab.io/ermines-steinmetz/) I led as a lead TA of Neuromatch summer school
@@ -11,7 +11,7 @@
 * [Some notes on development in python and jupyter](http://dev.to/mmyros), primarily to answer FAQs from students
 * [Run spikesorting](https://gitlab.com/mmyros/run_spikesorting) is a library with CLI for one-stop spikesorting using my branch of Pykilosort. Seamlessly integrated with cluster quality estimation
 
-## Summary
+## Software development summaries
 * [GitHub profile](https://github.com/mmyros)
 * [GitLab profile](https://gitlab.com/mmyros)
 
