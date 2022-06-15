@@ -1,4 +1,4 @@
-# Resume, Max Myroshnychenko
+# Resume
 [Link to publications](https://scholar.google.com/citations?user=hpzb2HkAAAAJ&hl=en)
 ## Testimonials
 > After working alongside Max for three years at NIH, I must say he is a great to work with Data science wizard, who has the gift to transforms complex data and problems into meaningful and impactful insights. I wish I could incentive him to move to Europe.
@@ -33,23 +33,24 @@ National Institute of Mental Health, 2018 - now
 
 ### Programming
 - Python, <font size="2"> MATLAB </font>, some C, some R  
-- PEP 8 code style
+- PEP 8
 - Git
 - Unit testing including mocking, fixtures
 
-### Devops
+### Data analytics at scale
+- Python ML and statistics stack (scikit-learn, statsmodels, scipy, numpy, some jax)
+- Interactive visualization and dashborading with Altair and Bokeh/Panel
+- Markov chain Monte Carlo with GPU acceleration (numpyro, pymc)
+- Parallelization 
+- Relational databases with direct acyclic graph
+
+### DevOps
 - Linux (including realtime), Docker, emacs, zsh, package management
 - Comfortable with CLIs (click, argparse)
 - Sockets
 - GitLab CI, GitHub actions, Grafana 
 - Integrating tricky SDKs
 - Static HTML from Python code
-
-### Computing
-- Python ML stack (scikit-learn, statsmodels, scipy, numpy, some jax, some TensorFlow)
-- Markov chain Monte Carlo with GPU acceleration (numpyro, pymc)
-- Parallelization 
-- Relational databases with direct acyclic graph
 
 ### Bench biology
 - Mouse and rat neurosurgery
